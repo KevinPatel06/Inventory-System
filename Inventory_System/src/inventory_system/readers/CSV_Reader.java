@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import inventory_system.models.Item;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +60,7 @@ public class CSV_Reader {
         }
         
         System.out.println("Second Inventory");
+        num = 1;
         //Second Inventory
         try {
             reader = new CSVReader(new FileReader(csvFilePathB));
