@@ -1,6 +1,6 @@
-package edu.vanier;
+package inventory_system.drivers;
 
-import edu.vanier.readers.CSV_Reader;
+import inventory_system.readers.CSV_Reader;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;

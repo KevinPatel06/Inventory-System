@@ -1,4 +1,4 @@
-package edu.vanier.models;
+package inventory_system.models;
 /**
  * @author Gianni Coladonato
  * @version 1.0

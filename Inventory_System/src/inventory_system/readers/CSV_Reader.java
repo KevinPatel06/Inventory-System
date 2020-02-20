@@ -1,10 +1,10 @@
-package edu.vanier.readers;
+package inventory_system.readers;
 import com.opencsv.CSVReader;
-import edu.vanier.Driver;
+import inventory_system.drivers.Driver;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import edu.vanier.models.Item;
+import inventory_system.models.Item;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
