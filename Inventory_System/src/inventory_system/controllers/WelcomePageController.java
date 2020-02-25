@@ -27,9 +27,10 @@ public class WelcomePageController implements Initializable {
     private void changeScene(ActionEvent event) throws IOException{ 
         System.out.println("Hello");
 
-        Parent root = FXMLLoader.load(getClass().getResource("ui/FXMLWelcomePage.fxml"));
-        Scene scene = new Scene(root);        
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource(""
+                + "../ui/FXMLSelectionPage.fxml"));
+        Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();
     }
