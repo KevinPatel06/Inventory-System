@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="inventory_system.ui.SelectionPageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="inventory_system.controllers.SelectionPageController">
    <children>
       <Button fx:id="btnOffline" layoutX="14.0" layoutY="188.0" mnemonicParsing="false" text="Offline" />
       <Button fx:id="btnOnline" layoutX="535.0" layoutY="188.0" mnemonicParsing="false" text="Online" />

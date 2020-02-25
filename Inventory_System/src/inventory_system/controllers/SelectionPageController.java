@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package inventory_system.ui;
+package inventory_system.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +9,9 @@ import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
- * @author cstuser
+ * @author Ricky Mungcal
+ * @version 1.0
+ * @since 20/02/2020
  */
 public class SelectionPageController implements Initializable {
     
