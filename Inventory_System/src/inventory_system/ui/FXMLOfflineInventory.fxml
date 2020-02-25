@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLOfflineInventoryController">
+   <children>
+      <Label layoutX="216.0" layoutY="32.0" text="Offline Inventory">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="fileNameLabel" layoutX="73.0" layoutY="191.0" text="...">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="fileSelectbtn" layoutX="53.0" layoutY="166.0" mnemonicParsing="false" onAction="#fileSelect" text="Select File" />
+      <Button fx:id="btnBack" layoutX="44.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

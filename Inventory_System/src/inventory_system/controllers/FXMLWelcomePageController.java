@@ -1,5 +1,4 @@
 package inventory_system.controllers;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,22 +13,18 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Gianni Coladonato
+ * FXML Controller class
  * 
+ * @author Gianni Coladonato
+ * @version 1.0
+ * @since 25/02/2020
  */
-public class WelcomePageController implements Initializable {
-    
-    @FXML
-    private Button btnEnter;
+public class FXMLWelcomePageController implements Initializable {
 
     @FXML
     private void changeScene(ActionEvent event) throws IOException{ 
-        System.out.println("Hello");
-
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource(""
-                + "../ui/FXMLSelectionPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLSelectionPage.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();
@@ -37,6 +32,6 @@ public class WelcomePageController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
 }

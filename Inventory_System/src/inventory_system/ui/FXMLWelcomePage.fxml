@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.WelcomePageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLWelcomePageController">
    <children>
       <Button fx:id="btnEnter" layoutX="268.0" layoutY="183.0" mnemonicParsing="false" onAction="#changeScene" text="Enter">
          <font>
