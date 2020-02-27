@@ -30,7 +30,8 @@ public class FXMLOfflineInventoryController implements Initializable {
         fc.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
-        
+        String fileTitle = fc.getTitle();
+        System.out.println(fileTitle);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         fc.showOpenDialog(window);
     }
