@@ -67,7 +67,7 @@ public class TagReportListenerImplementation implements TagReportListener {
                         t.getModelDetails().getUserMemorySizeBits());
             }
 
-            System.out.println("");
+            System.out.println(" Top Banana");
         }
     }
 }

@@ -50,7 +50,7 @@ public class CSV_Reader {
             while((nextLine = reader.readNext()) != null) { 
                 
             Item item = new Item(nextLine[0]);
-            System.out.println(num + " " + item);
+//            System.out.println(num + " " + item);
             inventory.add(item);
             num += 1;
             }
@@ -59,7 +59,7 @@ public class CSV_Reader {
             Logger.getLogger(Driver.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        System.out.println("Second Inventory");
+//        System.out.println("Second Inventory");
         num = 1;
         //Second Inventory
         try {
@@ -72,7 +72,7 @@ public class CSV_Reader {
             while((nextLine = reader.readNext()) != null) { 
                 
             Item item = new Item(nextLine[0]);
-            System.out.println(num + " " + item);
+//            System.out.println(num + " " + item);
             secondInventory.add(item);
             num += 1;
             }
@@ -93,7 +93,6 @@ public class CSV_Reader {
         c1.parse();
         //find any added epc codes
         inventory.removeAll(secondInventory);
-       
         return inventory;
     }
     /**
