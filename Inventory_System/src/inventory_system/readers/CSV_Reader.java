@@ -22,16 +22,16 @@ public class CSV_Reader {
     private final String csvFilePathA;
     private final String csvFilePathB;
     
-    public CSV_Reader(String csv){
-        this.csvFilePathA = "data/Inventory_A.csv";
-        this.csvFilePathB = "data/Inventory_B.csv";
+    public CSV_Reader(String csv1, String csv2){
+        this.csvFilePathA = csv1;
+        this.csvFilePathB = csv2;
     }
     
     /**
      * Parses the data from the two CSV files and returns the EPC codes as a List.
      * @return A list of EPC Codes representing the Inventory.
      */
-    public List<Item> parse(String pathA, String pathB) {
+    public List<Item> parse() {
         
         CSVReader reader = null;
         this.inventory = new ArrayList();
@@ -40,7 +40,7 @@ public class CSV_Reader {
         
         //First Inventory
         try {
-            reader = new CSVReader(new FileReader(pathA));
+            reader = new CSVReader(new FileReader(csvFilePathA));
         }
         catch (FileNotFoundException ex) {
             Logger.getLogger(Driver.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,7 +63,7 @@ public class CSV_Reader {
         num = 1;
         //Second Inventory
         try {
-            reader = new CSVReader(new FileReader(pathB));
+            reader = new CSVReader(new FileReader(csvFilePathB));
         }
         catch (FileNotFoundException ex) {
             Logger.getLogger(Driver.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,8 +89,8 @@ public class CSV_Reader {
      * @param c1, the csv reader
      * @return list of added codes
      */
-    public List<Item> addedCodes(CSV_Reader c1, String pathA, String pathB){
-        c1.parse(pathA, pathB);
+    public List<Item> addedCodes(CSV_Reader c1){
+        c1.parse();
         //find any added epc codes
         inventory.removeAll(secondInventory);
        
@@ -102,8 +102,8 @@ public class CSV_Reader {
      * @param c1
      * @return boolean output whether files are equivalent
      */
-    public boolean equivalency(CSV_Reader c1, String pathA, String pathB){
-        c1.parse(pathA, pathB);
+    public boolean equivalency(CSV_Reader c1){
+        c1.parse();
         
         return secondInventory.containsAll(inventory);
     }
@@ -113,8 +113,8 @@ public class CSV_Reader {
      * @param c1, the csv reader
      * @return the list of removed EPC codes
      */
-    public List<Item> removedCodes(CSV_Reader c1, String pathA, String pathB){
-        c1.parse(pathA, pathB); 
+    public List<Item> removedCodes(CSV_Reader c1){
+        c1.parse(); 
         //find missing epc codes
         secondInventory.removeAll(inventory);
         

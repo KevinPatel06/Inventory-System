@@ -8,7 +8,7 @@ import inventory_system.readers.CSV_Reader;
 public class Driver {
 
     public static void main(String[] args) {
-        CSV_Reader c1 = new CSV_Reader("data/Inventory_A.csv");
+        CSV_Reader c1 = new CSV_Reader("data/Inventory_A.csv","data/Inventory_B.csv");
         c1.parse();
     }
 }
