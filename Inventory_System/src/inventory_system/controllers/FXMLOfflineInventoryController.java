@@ -46,18 +46,14 @@ public class FXMLOfflineInventoryController implements Initializable {
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        try{
-            File f = fc.showOpenDialog(window);
+        File f = fc.showOpenDialog(window);
+        if (f != null){
             String fileTitle = f.getName();
             csvFile1 = f.getAbsolutePath();
             fileNameLabel.setText(fileTitle);
-            fc.showOpenDialog(window);
-//        }
-//        catch{
-//            
-//        }
-        
+        }    
     }
+    
     /**
      * 
      * @param event
@@ -72,14 +68,11 @@ public class FXMLOfflineInventoryController implements Initializable {
         );
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         File f = fc.showOpenDialog(window);
-        String fileTitle = f.getName();
-        csvFile2 = f.getAbsolutePath();
-//        System.out.println(fileTitle);
-        lblFileNameTwo.setText(fileTitle);
-//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        fc.showOpenDialog(window);
-        
-//        return filePath2;
+        if (f != null){
+            String fileTitle = f.getName();
+            csvFile2 = f.getAbsolutePath();
+            lblFileNameTwo.setText(fileTitle);
+        }    
     }
     
     /**
