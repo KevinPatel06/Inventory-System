@@ -45,16 +45,18 @@ public class FXMLOfflineInventoryController implements Initializable {
         fc.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
-        File f = fc.showOpenDialog(null);
-        String fileTitle = f.getName();
-        csvFile1 = f.getName();
-        String filePath = f.getAbsolutePath();
-//        System.out.println(fileTitle);
-        fileNameLabel.setText(fileTitle);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        fc.showOpenDialog(window);
+//        try{
+            File f = fc.showOpenDialog(window);
+            String fileTitle = f.getName();
+            csvFile1 = f.getAbsolutePath();
+            fileNameLabel.setText(fileTitle);
+            fc.showOpenDialog(window);
+//        }
+//        catch{
+//            
+//        }
         
-//        return filePath;
     }
     /**
      * 
@@ -68,13 +70,13 @@ public class FXMLOfflineInventoryController implements Initializable {
         fc.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
-        File f = fc.showOpenDialog(null);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        File f = fc.showOpenDialog(window);
         String fileTitle = f.getName();
-        csvFile2 = f.getName();
-        String filePath2 = f.getAbsolutePath();
+        csvFile2 = f.getAbsolutePath();
 //        System.out.println(fileTitle);
         lblFileNameTwo.setText(fileTitle);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         fc.showOpenDialog(window);
         
 //        return filePath2;
@@ -86,20 +88,30 @@ public class FXMLOfflineInventoryController implements Initializable {
      * @return 
      */
     @FXML
-    private void compare(ActionEvent event){
+    private void compare(ActionEvent event) throws IOException{
         if(csvFile1 == null){
             System.err.println("\nError: First file is missing. Please select a file.");
         }
         if(csvFile2 == null)
             System.err.println("\nError: Second file is missing. Please select a file.");
         else{
-        String firstFile = "data/" + csvFile1;
-        String secondFile = "data/" + csvFile2;
+        String firstFile = csvFile1;
+        String secondFile = csvFile2;
         
         CSV_Reader reader = new CSV_Reader(firstFile, secondFile);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
+//        FXMLOfflineResultsSceneController controller = loader.getController();
+//        controller.addedCodes(reader);
+        Parent root = loader.load();
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLOfflineResultsSceneController controller = loader.getController();
+        controller.addedCodes(reader);
+        controller.removedCodes(reader);
+        Scene scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
 //        reader.parse();
-        reader.addedCodes(reader);
-        reader.removedCodes(reader);
+//        reader.removedCodes(reader);
         }
         
     }
