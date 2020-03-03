@@ -14,18 +14,18 @@
             <Font name="Comic Sans MS" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="99.0" text="Added Codes">
+      <Label layoutX="23.0" layoutY="99.0" text="Added Codes From Second File">
          <font>
-            <Font name="Comic Sans MS" size="19.0" />
+            <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="397.0" layoutY="99.0" text="Removed Codes">
+      <Label layoutX="295.0" layoutY="99.0" text="Removed Codes From First File">
          <font>
-            <Font name="Comic Sans MS" size="19.0" />
+            <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Label>
-      <ListView fx:id="lvAdded" layoutX="19.0" layoutY="132.0" prefHeight="200.0" prefWidth="200.0" />
-      <ListView fx:id="lvRemoved" layoutX="359.0" layoutY="132.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="lvAdded" layoutX="19.0" layoutY="132.0" prefHeight="200.0" prefWidth="268.0" />
+      <ListView fx:id="lvRemoved" layoutX="291.0" layoutY="132.0" prefHeight="200.0" prefWidth="268.0" />
       <Button fx:id="btnMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu" />
    </children>
 </AnchorPane>

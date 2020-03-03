@@ -35,7 +35,7 @@ public class Item {
     @Override
     public String toString(){
         String str = "";
-        str += "EPC Code : " + getEPCCode();
+        str += "EPC Code: " + getEPCCode();
         return str;
     }
 }

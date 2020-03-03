@@ -90,23 +90,21 @@ public class FXMLOfflineInventoryController implements Initializable {
         else{
         String firstFile = csvFile1;
         String secondFile = csvFile2;
-        
         CSV_Reader reader = new CSV_Reader(firstFile, secondFile);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
-//        FXMLOfflineResultsSceneController controller = loader.getController();
-//        controller.addedCodes(reader);
-        Parent root = loader.load();
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        FXMLOfflineResultsSceneController controller = loader.getController();
-        controller.addedCodes(reader);
-        controller.removedCodes(reader);
-        Scene scene = new Scene(root);
-        window.setScene(scene);
-        window.show();
-//        reader.parse();
-//        reader.removedCodes(reader);
+        if(reader.equivalency(reader))
+                System.err.println("The files contain the same EPC Codes.");
+        else{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
+            Parent root = loader.load();
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            FXMLOfflineResultsSceneController controller = loader.getController();
+            controller.addedCodes(reader);
+            controller.removedCodes(reader);
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.show();
+            }
         }
-        
     }
     
     /**

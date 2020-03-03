@@ -34,13 +34,13 @@ public class FXMLOfflineResultsSceneController implements Initializable {
     Button btnMenu;
     
     public void addedCodes(CSV_Reader reader){
-        List<Item> added = reader.addedCodes(reader);
+        List<Item> added = reader.uniqueACodes(reader);
         for(int i = 0; i < added.size(); i++)
             lvAdded.getItems().add(added.get(i));
     }
     
     public void removedCodes(CSV_Reader reader){
-        List<Item> removed = reader.removedCodes(reader);
+        List<Item> removed = reader.uniqueBCodes(reader);
         for(int i = 0; i < removed.size();i++)
             lvRemoved.getItems().add(removed.get(i));
     }

@@ -89,11 +89,13 @@ public class CSV_Reader {
      * @param c1, the csv reader
      * @return list of added codes
      */
-    public List<Item> addedCodes(CSV_Reader c1){
+    public List<Item> uniqueACodes(CSV_Reader c1){
         c1.parse();
-        //find any added epc codes
-        inventory.removeAll(secondInventory);
-        return inventory;
+        List <Item> uniqueA = new ArrayList();
+        for(int i = 0; i < inventory.size(); i++)
+            if(!secondInventory.contains(inventory.get(i)))
+                uniqueA.add(inventory.get(i));
+        return uniqueA;
     }
     /**
      * Compares EPC codes from the two CSV files and verifies whether they are
@@ -112,11 +114,14 @@ public class CSV_Reader {
      * @param c1, the csv reader
      * @return the list of removed EPC codes
      */
-    public List<Item> removedCodes(CSV_Reader c1){
+    public List<Item> uniqueBCodes(CSV_Reader c1){
         c1.parse(); 
         //find missing epc codes
-        secondInventory.removeAll(inventory);
-        
-        return secondInventory;
+        List <Item> uniqueB = new ArrayList();
+        for(int i = 0; i < secondInventory.size(); i++){
+            if(!inventory.contains(secondInventory.get(i)))
+                uniqueB.add(secondInventory.get(i));
+        }
+        return uniqueB;
     }
 }
