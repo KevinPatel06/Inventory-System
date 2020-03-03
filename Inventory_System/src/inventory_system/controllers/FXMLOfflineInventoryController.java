@@ -1,7 +1,10 @@
 package inventory_system.controllers;
+import inventory_system.models.Item;
+import inventory_system.readers.CSV_Reader;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +27,7 @@ import javafx.stage.Stage;
  * //https://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm
  */
 public class FXMLOfflineInventoryController implements Initializable {
+    CSV_Reader instance;
     @FXML
     Label fileNameLabel;
     @FXML
@@ -85,9 +89,16 @@ public class FXMLOfflineInventoryController implements Initializable {
      */
     @FXML
     private void compare(ActionEvent event){
+        CSV_Reader reader = null;
         String firstFile = fileSelect(event);
         String secondFile = fileSelectTwo(event);
         
+        List<Item> newList;
+        newList = instance.parse(firstFile, secondFile);
+        
+        List<Item> addedList = instance.addedCodes(reader, firstFile, secondFile);
+        List<Item> removedList = instance.removedCodes(reader, firstFile, secondFile);
+
     }
     
     /**
