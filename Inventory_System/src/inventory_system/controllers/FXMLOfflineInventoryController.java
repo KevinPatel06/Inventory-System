@@ -1,4 +1,5 @@
 package inventory_system.controllers;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -22,20 +24,77 @@ import javafx.stage.Stage;
  * //https://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm
  */
 public class FXMLOfflineInventoryController implements Initializable {
-    
     @FXML
-    private void fileSelect(ActionEvent event){
+    Label fileNameLabel;
+    @FXML
+    Label lblFileNameTwo;
+    
+    /**
+     * 
+     * @param event
+     * @return 
+     */
+    @FXML
+    private String fileSelect(ActionEvent event){
         FileChooser fc = new FileChooser();
         fc.setTitle("Select an Inventory Sheet");
         fc.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
-        String fileTitle = fc.getTitle();
+        //String fileTitle = fc.getTitle();
+        File f = fc.showOpenDialog(null);
+        String fileTitle = f.getName();
+        
+        String filePath = f.getAbsolutePath();
         System.out.println(fileTitle);
+        fileNameLabel.setText(fileTitle);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         fc.showOpenDialog(window);
+        
+        return filePath;
+    }
+    /**
+     * 
+     * @param event
+     * @return 
+     */
+    @FXML
+    private String fileSelectTwo(ActionEvent event){
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Select an Inventory Sheet");
+        fc.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("CSV File", "*.csv")
+        );
+        //String fileTitle = fc.getTitle();
+        File f = fc.showOpenDialog(null);
+        String fileTitle = f.getName();
+        
+        String filePath2 = f.getAbsolutePath();
+        System.out.println(fileTitle);
+        lblFileNameTwo.setText(fileTitle);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        fc.showOpenDialog(window);
+        
+        return filePath2;
     }
     
+    /**
+     * 
+     * @param event
+     * @return 
+     */
+    @FXML
+    private void compare(ActionEvent event){
+        String firstFile = fileSelect(event);
+        String secondFile = fileSelectTwo(event);
+        
+    }
+    
+    /**
+     * 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
