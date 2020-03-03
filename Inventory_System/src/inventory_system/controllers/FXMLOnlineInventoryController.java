@@ -22,8 +22,7 @@ import javafx.stage.Stage;
 public class FXMLOnlineInventoryController implements Initializable {
 
     @FXML private void readTags(){
-        ReadTags.main(null);
-        
+        StartReading.main(null);
     }
     
     @FXML private void backToMenu(ActionEvent event) throws IOException{
