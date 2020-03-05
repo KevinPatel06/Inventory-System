@@ -1,4 +1,5 @@
 package inventory_system;
+import inventory_system.controllers.FXMLWelcomePageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,9 @@ public class Inventory_System extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("ui/FXMLWelcomePage.fxml"));
         Scene scene = new Scene(root);
+        
+        scene.getStylesheets().add("/CSS/WelcomePage.css");
+        
         primaryStage.setScene(scene);
         primaryStage.setTitle("Inventory Manager");
         primaryStage.show();
