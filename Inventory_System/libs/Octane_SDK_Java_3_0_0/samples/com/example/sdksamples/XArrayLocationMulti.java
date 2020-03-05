@@ -6,27 +6,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-public class SpatialReaderLocationMulti {
+public class XArrayLocationMulti {
     // Shared between Both Roles
-    final ReaderMode READER_MODE = ReaderMode.AutoSetDenseReaderDeepScan;   // Recommended mode for spatial reader
-    final short COMPUTE_WINDOW_SEC = 30;                                      // Medium Compute Window, lengthen for more accuracy,
+    final ReaderMode READER_MODE = ReaderMode.AutoSetDenseReaderDeepScan;   // Recommended moded for xArray
+    final short COMPUTE_WINDOW_SEC = 30;                                      // Medium Compute Window, Lengthen for more accuarcy,
     // shorten for just a few moving tags
     final short TAG_AGE_SEC = 2 * COMPUTE_WINDOW_SEC;                  // 2 X COMPUTE_WINDOW is typical
     final short UPDATE_INTERVAL_SEC = 10;                  // 2 X COMPUTE_WINDOW is typical
-    // This example does a weighted average with just 2 spatialReaders.  You can additional spatialReaders by adding spatial reader elements to the
-    // 2 spatialReaders defined in spatialReaders[] below:
+    // This example does a weighted average with just 2 xArrays.  You can additional xArrays by adding xArray elements to the
+    // 2 xArrays defined in xArrays[] below:
     //                                       Reader       HeightCM, FacXcm, FacYcm, Orient, Session
-    SpatialReader spatialReaders[] = {new SpatialReader("xarray-XX-XX-XX", (short) 300, 0, 0, (short) 0, 2),
-            new SpatialReader("xarray-XX-XX-XX", (short) 300, 0, 400, (short) 0, 3)};
+    XArray xArrays[] = {new XArray("xarray-XX-XX-XX", (short) 300, 0, 0, (short) 0, 2),
+            new XArray("xarray-XX-XX-XX", (short) 300, 0, 400, (short) 0, 3)};
     // Use dictionaries to store Confidence, WeightedX and WeightedY and Cycle Lengths.
     HashMap<String, Integer> cycleLengths = new HashMap<String, Integer>();
     HashMap<String, TagReadInfo> tagReadInfos = new HashMap<String, TagReadInfo>();
 
-    public SpatialReaderLocationMulti() {
-        ImpinjReader[] readers = new ImpinjReader[spatialReaders.length];
+    public XArrayLocationMulti() {
+        ImpinjReader[] readers = new ImpinjReader[xArrays.length];
         for (int i = 0; i < readers.length; i++) {
             readers[i] = new ImpinjReader();
-            LaunchSpatialReader(readers[i], spatialReaders[i]);
+            LaunchXArray(readers[i], xArrays[i]);
         }
 
         System.out.println("Press Enter to exit.");
@@ -34,21 +34,21 @@ public class SpatialReaderLocationMulti {
         s.nextLine();
         s.close();
 
-        for (int i = 0; i < spatialReaders.length; i++) {
-            CloseSpatialReader(readers[i]);
+        for (int i = 0; i < xArrays.length; i++) {
+            CloseXArray(readers[i]);
         }
     }
 
     public static void main(String[] args) {
-        new SpatialReaderLocationMulti();
+        new XArrayLocationMulti();
     }
 
-    public void LaunchSpatialReader(ImpinjReader reader, SpatialReader spatialReader) {
+    public void LaunchXArray(ImpinjReader reader, XArray xArray) {
         try {
             // Connect to the reader.
             // Change the ReaderHostname constant in SolutionConstants.cs
             // to the IP address or hostname of your reader.
-            reader.connect(spatialReader.Hostname);
+            reader.connect(xArray.Hostname);
 
             // Assign the LocationReported event handler.
             // This specifies which method to call
@@ -58,27 +58,27 @@ public class SpatialReaderLocationMulti {
             reader.setDiagnosticsReportListener(new DiagnosticsReportListenerImplementation());
 
             // Apply the newly modified settings.
-            reader.applySettings(GetPrepareSettings(reader, spatialReader));
+            reader.applySettings(GetPrepareSettings(reader, xArray));
 
             // Start the reader
             reader.start();
         } catch (OctaneSdkException e) {
             // Handle Octane SDK errors.
-            System.out.println("Octane SDK exception: " + e.getMessage() + " Hostname=" + spatialReader.Hostname);
+            System.out.println("Octane SDK exception: " + e.getMessage() + " Hostname=" + xArray.Hostname);
         } catch (Exception e) {
             // Handle other .NET errors.
             System.out.println("Exception : " + e.getMessage());
         }
     }
 
-    public Settings GetPrepareSettings(ImpinjReader reader, SpatialReader spatialReader) {
+    public Settings GetPrepareSettings(ImpinjReader reader, XArray xArray) {
         // Get the default settings
         // We'll use these as a starting point
         // and then modify the settings we're
         // interested in.
         Settings settings = reader.queryDefaultSettings();
 
-        // Put the spatialReader into location mode
+        // Put the xArray into location mode
         settings.getSpatialConfig().setMode(SpatialMode.Location);
 
         LocationConfig locationConfig = settings.getSpatialConfig().getLocation();
@@ -89,18 +89,18 @@ public class SpatialReaderLocationMulti {
         // Enable Diagnostic reports here, soon to be deprecated
         locationConfig.setDiagnosticReportEnabled(true);
 
-        // Set spatialReader placement parameters
-        // The mounting height of the spatialReader, in centimeters
+        // Set xArray placement parameters
+        // The mounting height of the xArray, in centimeters
         PlacementConfig placementConfig = settings.getSpatialConfig().getPlacement();
-        placementConfig.setHeightCm(spatialReader.Height);
-        placementConfig.setFacilityXLocationCm(spatialReader.FacilityXcm);
-        placementConfig.setFacilityYLocationCm(spatialReader.FacilityYcm);
-        placementConfig.setOrientationDegrees(spatialReader.Orientation);
+        placementConfig.setHeightCm(xArray.Height);
+        placementConfig.setFacilityXLocationCm(xArray.FacilityXcm);
+        placementConfig.setFacilityYLocationCm(xArray.FacilityYcm);
+        placementConfig.setOrientationDegrees(xArray.Orientation);
 
         // Compute Window and Gen2 Settings
         locationConfig.setComputeWindowSeconds(COMPUTE_WINDOW_SEC);
         settings.setReaderMode(ReaderMode.AutoSetDenseReader);
-        settings.setSession(spatialReader.Session);
+        settings.setSession(xArray.Session);
         locationConfig.setTagAgeIntervalSeconds(TAG_AGE_SEC);
 
         // Specify how often we want to receive location reports
@@ -118,7 +118,7 @@ public class SpatialReaderLocationMulti {
         return settings;
     }
 
-    private void CloseSpatialReader(ImpinjReader reader) {
+    private void CloseXArray(ImpinjReader reader) {
         // Apply the default settings before exiting.
         try {
             reader.applyDefaultSettings();
@@ -134,7 +134,7 @@ public class SpatialReaderLocationMulti {
             List<Integer> reportMetricsList = report.getMetrics();
             // Warning!!! Accessing diagnostic codes will not be supported in future releases.
             if (reportMetricsList.get(0) == 100) { // End of Cycle
-                System.out.println("Spatial reader=" + reader.getAddress() + "  CycleTime=" + reportMetricsList.get(1) / 1000 + "ms");
+                System.out.println("xArray=" + reader.getAddress() + "  CycleTime=" + reportMetricsList.get(1) / 1000 + "ms");
                 // Store latest Cycle time
                 cycleLengths.put(reader.getAddress(), reportMetricsList.get(1));
             }
@@ -169,7 +169,7 @@ public class SpatialReaderLocationMulti {
 
             // Pick a reader to key off the Averaging calculation
             // Let's use the last one.
-            if (reader.getAddress().equals(spatialReaders[spatialReaders.length - 1].Hostname)) {
+            if (reader.getAddress().equals(xArrays[xArrays.length - 1].Hostname)) {
                 System.out.print("Weighted: " + EpcStr);
                 if (tagReadInfo.getConfidence() != 0) {
                     System.out.print(" x=" + Math.floor(tagReadInfo.getWeightedX() / tagReadInfo.getConfidence()));
@@ -183,7 +183,7 @@ public class SpatialReaderLocationMulti {
         }
     }
 
-    class SpatialReader {
+    class XArray {
         public String Hostname;
         public short Height;
         public int FacilityXcm;
@@ -191,7 +191,7 @@ public class SpatialReaderLocationMulti {
         public short Orientation;
         public int Session;
 
-        public SpatialReader(String Hostname, short Height, int FacilityXcm, int FacilityYcm, short Orientation, int Session) {
+        public XArray(String Hostname, short Height, int FacilityXcm, int FacilityYcm, short Orientation, int Session) {
             this.Hostname = Hostname;
             this.Height = Height;
             this.FacilityXcm = FacilityXcm;

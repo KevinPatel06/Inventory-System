@@ -7,7 +7,7 @@ import java.util.Scanner;
 // Direction-specific imports:
 // For filtering
 
-public class SpatialReaderDirection {
+public class XArrayDirection {
 
     public static void main(String[] args) {
         try {
@@ -25,10 +25,10 @@ public class SpatialReaderDirection {
 
             Settings settings = reader.queryDefaultSettings();
 
-            // Tells the spatial reader that we want to operate in Direction mode
+            // Tells the xArray that we want to operate in Direction mode
             settings.getSpatialConfig().setMode(SpatialMode.Direction);
 
-            // The spatial reader's direction feature works best with a smaller tag population,
+            // xArray's direction feature works best with a smaller tag population,
             // so we can set up a filter on the reader to only track tags we care about.
             //
             // For example, if you run this sample with "-DtargetTag=9999" specified on
@@ -53,16 +53,14 @@ public class SpatialReaderDirection {
             // modify the settings we are interested in.
             DirectionConfig directionConfig = settings.getSpatialConfig().getDirection();
 
-            // Tells the spatial reader to perform tag reads more quickly at the expense of sensitivity.
+            // Tells the xArray to perform tag reads more quickly at the expense of sensitivity.
             directionConfig.setMode(DirectionMode.HighPerformance);
 
             // Enable the sectors you want to track tags in here. Note that you may only enable
             // non-adjacent sectors (e.g. 2 and 4, but not 2 and 3). Further note that sectors 2
             // and 9 are also considered adjacent.
             directionConfig.enableSector((short) 2);
-            //directionConfig.enableSector((short) 6);
-            // If xSpan, enable sector 3 instead of sector 6
-            directionConfig.enableSector((short) 3);
+            directionConfig.enableSector((short) 6);
 
             // Enable any reports you are interested in here. Entry reports are generated when
             // a tag is first read.  Updates are sent every "update interval" seconds indicating
@@ -74,7 +72,7 @@ public class SpatialReaderDirection {
             directionConfig.setExitReportEnabled(true);
             directionConfig.setUpdateReportEnabled(false);
 
-            // Tells the spatial reader we want to track tags in as wide of an area as possible,
+            // Tells the xArray we want to track tags in as wide of an area as possible,
             // though a NARROW field of view is also available.
             directionConfig.setFieldOfView(DirectionFieldOfView.WIDE);
 

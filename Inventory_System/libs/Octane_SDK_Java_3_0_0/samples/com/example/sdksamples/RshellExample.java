@@ -22,7 +22,7 @@ public class RshellExample {
             RshellEngine rshell = new RshellEngine();
 
             /* login can take some time to give username and password */
-            rshell.openSecureSession(hostname, "root", "impinj", 10000);
+            rshell.open(hostname, "root", "impinj", 10000);
 
             System.out.println("Sending command '" + cmd + "' to " + hostname);
             String reply = rshell.send(cmd);

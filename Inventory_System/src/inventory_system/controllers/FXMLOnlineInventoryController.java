@@ -20,9 +20,11 @@ import javafx.stage.Stage;
  * @since 03/03/2020
  */
 public class FXMLOnlineInventoryController implements Initializable {
+    
+    private final CheckItems ci = new CheckItems();
 
     @FXML private void readTags(){
-        StartReading.main(null);
+        ci.startReading();
     }
     
     @FXML private void backToMenu(ActionEvent event) throws IOException{

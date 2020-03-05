@@ -40,6 +40,9 @@ public class ReadTagsPeriodicTrigger {
             System.out.println("Applying Settings");
             reader.applySettings(settings);
 
+            System.out.println("Starting");
+            reader.start();
+
             System.out.println("Press Enter to exit.");
             Scanner s = new Scanner(System.in);
             s.nextLine();

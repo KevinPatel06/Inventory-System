@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SpatialReaderLocation {
+public class XArrayLocation {
 
     public static void main(String[] args) {
         try {
@@ -27,16 +27,16 @@ public class SpatialReaderLocation {
 
             Settings settings = reader.queryDefaultSettings();
 
-            // set spatial reader into location mode
+            // set xarray into location mode
             settings.getSpatialConfig().setMode(SpatialMode.Location);
 
-            // Set spatial reader placement parameters
+            // Set xArray placement parameters
             PlacementConfig pc = settings.getSpatialConfig().getPlacement();
 
-            // The mounting height of the spatial reader, in centimeters
+            // The mounting height of the xArray, in centimeters
             pc.setHeightCm((short) 457);
 
-            // These settings aren't required in a single spatial reader environment
+            // These settings aren't required in a single xArray environment
             // They can be set to zero (which is the default)
             pc.setFacilityXLocationCm(0);
             pc.setFacilityYLocationCm(0);

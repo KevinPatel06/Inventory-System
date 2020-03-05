@@ -8,7 +8,7 @@ import com.impinj.octane.Status;
 import java.io.DataInputStream;
 import java.util.Scanner;
 
-public class SpatialReaderFeatures {
+public class XArrayFeatures {
 
     public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class SpatialReaderFeatures {
             Settings settings = reader.queryDefaultSettings();
             reader.applySettings(settings);
 
-            System.out.println("Enabling Spatial Reader Beacon");
+            System.out.println("Enabling xArray Beacon");
 
             reader.turnBeaconOn(10000);
 
