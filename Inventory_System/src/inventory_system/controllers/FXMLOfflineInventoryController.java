@@ -98,8 +98,8 @@ public class FXMLOfflineInventoryController implements Initializable {
             Parent root = loader.load();
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             FXMLOfflineResultsSceneController controller = loader.getController();
-            controller.addedCodes(reader);
-            controller.removedCodes(reader);
+            controller.UniqueACodes(reader);
+            controller.UniqueBCodes(reader);
             Scene scene = new Scene(root);
             window.setScene(scene);
             window.show();

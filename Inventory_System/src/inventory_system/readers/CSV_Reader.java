@@ -72,7 +72,6 @@ public class CSV_Reader {
             while((nextLine = reader.readNext()) != null) { 
                 
             Item item = new Item(nextLine[0]);
-//            System.out.println(num + " " + item);
             secondInventory.add(item);
             num += 1;
             }
@@ -92,9 +91,23 @@ public class CSV_Reader {
     public List<Item> uniqueACodes(CSV_Reader c1){
         c1.parse();
         List <Item> uniqueA = new ArrayList();
-        for(int i = 0; i < inventory.size(); i++)
-            if(!secondInventory.contains(inventory.get(i)))
+        for(int i = 0; i < inventory.size(); i++){
+            boolean code = true;
+            for (int j = 0; j < secondInventory.size(); j++){
+                if(inventory.get(i).getEPCCode().equals(secondInventory.get(j).getEPCCode()))
+                    code = false;
+                    }
+            if(code)
                 uniqueA.add(inventory.get(i));
+        }
+//        for(int i = 0; i < inventory.size(); i++){
+//            for(int j = 0; j < secondInventory.size(); j++){
+//                if(!secondInventory.get(j).equals(inventory.get(i))){
+//                    uniqueA.add(inventory.get(i));
+//                    break;
+//                }
+//            }
+//        }
         return uniqueA;
     }
     /**
@@ -119,7 +132,12 @@ public class CSV_Reader {
         //find missing epc codes
         List <Item> uniqueB = new ArrayList();
         for(int i = 0; i < secondInventory.size(); i++){
-            if(!inventory.contains(secondInventory.get(i)))
+            boolean code = true;
+            for( int  j = 0; j < inventory.size(); j++){
+                if(secondInventory.get(i).getEPCCode().equals(inventory.get(j).getEPCCode()))
+                    code = false;
+            }
+            if(code)
                 uniqueB.add(secondInventory.get(i));
         }
         return uniqueB;

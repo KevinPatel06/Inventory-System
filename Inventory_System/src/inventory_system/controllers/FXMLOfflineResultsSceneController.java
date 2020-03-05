@@ -33,16 +33,18 @@ public class FXMLOfflineResultsSceneController implements Initializable {
     @FXML
     Button btnMenu;
     
-    public void addedCodes(CSV_Reader reader){
+    public void UniqueACodes(CSV_Reader reader){
         List<Item> added = reader.uniqueACodes(reader);
         for(int i = 0; i < added.size(); i++)
             lvAdded.getItems().add(added.get(i));
+        System.out.println(added.size());
     }
     
-    public void removedCodes(CSV_Reader reader){
+    public void UniqueBCodes(CSV_Reader reader){
         List<Item> removed = reader.uniqueBCodes(reader);
         for(int i = 0; i < removed.size();i++)
             lvRemoved.getItems().add(removed.get(i));
+        System.out.println(removed.size());
     }
     @FXML
     private void backToMenu(ActionEvent event) throws IOException{
