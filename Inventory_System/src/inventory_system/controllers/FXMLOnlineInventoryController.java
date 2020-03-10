@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -20,6 +21,9 @@ import javafx.stage.Stage;
  * @since 03/03/2020
  */
 public class FXMLOnlineInventoryController implements Initializable {
+    
+    @FXML
+    private ImageView imageWindow;
     
     private final CheckItems ci = new CheckItems();
 

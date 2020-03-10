@@ -5,10 +5,13 @@ import com.impinj.octane.OctaneSdkException;
 import com.impinj.octane.Tag;
 import com.impinj.octane.TagReport;
 import com.impinj.octane.TagReportListener;
+import inventory_system.models.Item;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.image.Image;
 import javax.sound.sampled.LineUnavailableException;
 
 
@@ -16,7 +19,26 @@ import javax.sound.sampled.LineUnavailableException;
 public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
     
-  
+        public void setImage(String EPCCode){
+            
+            if(EPCCode.equals("E280 1160 6000 0207 1112 4297")){
+                //image = new Image("data/first_image.jpg");
+                System.out.println("First");
+            }
+            else if(EPCCode.equals("0000 0000 0000 0000 1005 0833")){
+                //image = new Image("data/second_image.jpg");
+                System.out.println("Second");
+            }
+            else if(EPCCode.equals("0000 0000 0000 0000 1005 0834")){
+                //image = new Image("data/third_image.jpg");
+                System.out.println("Third");
+            }      
+            else{
+                System.out.println("None");
+            }
+            
+        }
+    
     @Override
     public void onTagReported(ImpinjReader reader, TagReport report) {
        
@@ -34,17 +56,20 @@ public class TagReportListenerImplementation implements TagReportListener {
         
         List<Tag> tags = report.getTags();
        
-      
+        Item item;
+        
         for (Tag t : tags)
-        {    
-          
-           
-            System.out.println(" EPC: " + t.getEpc().toString());
+        {
+            String epcCode = t.getEpc().toString();
+            item = new Item(epcCode);
+            setImage(epcCode);
+            
+            System.out.println(item);
             tagArray[i].set_epc(t.getEpc().toString());
             
             if (reader.getAddress() != null){
                
-                System.out.print(" Reader_ip: " + reader.getAddress());
+               System.out.println(" Reader_ip: " + reader.getAddress());
                tagArray[i].set_reader_ip(reader.getAddress());
               
             }
@@ -136,6 +161,8 @@ public class TagReportListenerImplementation implements TagReportListener {
             } catch (InterruptedException ex) {
                 Logger.getLogger(TagReportListenerImplementation.class.getName()).log(Level.SEVERE, null, ex);
             }*/
+        /*
+        
             try {
                 
                 try {
@@ -146,12 +173,9 @@ public class TagReportListenerImplementation implements TagReportListener {
             } catch (SQLException ex) {
                 Logger.getLogger(TagReportListenerImplementation.class.getName()).log(Level.SEVERE, null, ex);
             }
-             
+             */
             ++i;
         }
         
     }
    }
-   
-
- 

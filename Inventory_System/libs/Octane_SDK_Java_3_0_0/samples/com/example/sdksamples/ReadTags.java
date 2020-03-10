@@ -43,19 +43,19 @@ public class ReadTags {
             antennas.enableById(new short[]{1,2,3,4});
             antennas.getAntenna((short) 1).setIsMaxRxSensitivity(false);
             antennas.getAntenna((short) 1).setIsMaxTxPower(false);
-            antennas.getAntenna((short) 1).setTxPowerinDbm(15.0);
+            antennas.getAntenna((short) 1).setTxPowerinDbm(12.0);
             antennas.getAntenna((short) 1).setRxSensitivityinDbm(-70);
              antennas.getAntenna((short) 2).setIsMaxRxSensitivity(false);
             antennas.getAntenna((short) 2).setIsMaxTxPower(false);
-            antennas.getAntenna((short) 2).setTxPowerinDbm(15.0);
+            antennas.getAntenna((short) 2).setTxPowerinDbm(12.0);
             antennas.getAntenna((short) 2).setRxSensitivityinDbm(-70);
              antennas.getAntenna((short) 3).setIsMaxRxSensitivity(false);
             antennas.getAntenna((short) 3).setIsMaxTxPower(false);
-            antennas.getAntenna((short) 3).setTxPowerinDbm(15.0);
+            antennas.getAntenna((short) 3).setTxPowerinDbm(12.0);
             antennas.getAntenna((short) 3).setRxSensitivityinDbm(-70);
              antennas.getAntenna((short) 4).setIsMaxRxSensitivity(false);
             antennas.getAntenna((short) 4).setIsMaxTxPower(false);
-            antennas.getAntenna((short) 4).setTxPowerinDbm(15.0);
+            antennas.getAntenna((short) 4).setTxPowerinDbm(12.0);
             antennas.getAntenna((short) 4).setRxSensitivityinDbm(-70);
 
             reader.setTagReportListener(new TagReportListenerImplementation());
