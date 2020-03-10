@@ -33,6 +33,36 @@ public class FXMLOfflineResultsSceneController implements Initializable {
     @FXML
     Button btnMenu;
     
+    @FXML
+    Button btnLists;
+    
+    private String csvFile1;
+    private String csvFile2;
+    private CSV_Reader reader;
+
+    public String getCsvFile1() {
+        return csvFile1;
+    }
+
+    public void setCsvFile1(String csvFile1) {
+        this.csvFile1 = csvFile1;
+    }
+
+    public String getCsvFile2() {
+        return csvFile2;
+    }
+
+    public void setCsvFile2(String csvFile2) {
+        this.csvFile2 = csvFile2;
+    }
+    
+    public void setReader(CSV_Reader reader){
+        this.reader = reader;
+    }
+    public CSV_Reader getReader(){
+        return reader;
+    }
+    
     public void UniqueACodes(CSV_Reader reader){
         List<Item> added = reader.uniqueACodes(reader);
         for(int i = 0; i < added.size(); i++)
@@ -50,6 +80,19 @@ public class FXMLOfflineResultsSceneController implements Initializable {
     private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineInventory.fxml"));
+        Scene scene = new Scene(root);
+        window.setScene(scene);
+        window.show();
+    }
+    @FXML
+    private void goToLists(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResults2.fxml"));
+        Parent root = loader.load();
+        Stage window = new Stage();
+//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLOfflineResults2Controller controller = loader.getController();
+        controller.ACodes(reader);
+        controller.BCodes(reader);
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();

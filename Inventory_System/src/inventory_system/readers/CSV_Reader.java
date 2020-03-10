@@ -142,4 +142,20 @@ public class CSV_Reader {
         }
         return uniqueB;
     }
+
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    public List<Item> getSecondInventory() {
+        return secondInventory;
+    }
+
+    public void setSecondInventory(List<Item> secondInventory) {
+        this.secondInventory = secondInventory;
+    }
 }

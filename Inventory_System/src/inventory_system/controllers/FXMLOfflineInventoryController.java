@@ -32,6 +32,32 @@ public class FXMLOfflineInventoryController implements Initializable {
     
     private String csvFile1;
     private String csvFile2;
+    private CSV_Reader reader;
+
+    public String getCsvFile1() {
+        return csvFile1;
+    }
+
+    public void setCsvFile1(String csvFile1) {
+        this.csvFile1 = csvFile1;
+    }
+
+    public String getCsvFile2() {
+        return csvFile2;
+    }
+
+    public void setCsvFile2(String csvFile2) {
+        this.csvFile2 = csvFile2;
+    }
+
+    public CSV_Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(CSV_Reader reader) {
+        this.reader = reader;
+    }
+    
     
     /**
      * 
@@ -88,9 +114,9 @@ public class FXMLOfflineInventoryController implements Initializable {
         if(csvFile2 == null)
             System.err.println("\nError: Second file is missing. Please select a file.");
         else{
-        String firstFile = csvFile1;
-        String secondFile = csvFile2;
-        CSV_Reader reader = new CSV_Reader(firstFile, secondFile);
+//        String firstFile = csvFile1;
+//        String secondFile = csvFile2;
+        this.reader = new CSV_Reader(csvFile1, csvFile2);
         if(reader.equivalency(reader))
                 System.err.println("The files contain the same EPC Codes.");
         else{
@@ -100,6 +126,7 @@ public class FXMLOfflineInventoryController implements Initializable {
             FXMLOfflineResultsSceneController controller = loader.getController();
             controller.UniqueACodes(reader);
             controller.UniqueBCodes(reader);
+            controller.setReader(reader);
             Scene scene = new Scene(root);
             window.setScene(scene);
             window.show();
@@ -123,6 +150,5 @@ public class FXMLOfflineInventoryController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
 }
