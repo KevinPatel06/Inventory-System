@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -26,6 +27,10 @@ public class FXMLOnlineInventoryController implements Initializable {
     private ImageView imageWindow;
     
     private final CheckItems ci = new CheckItems();
+    
+    public void setImage(Image image){
+        imageWindow.setImage(image);
+    }
 
     @FXML private void readTags(){
         ci.startReading();
@@ -41,6 +46,9 @@ public class FXMLOnlineInventoryController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
+        Image image = new Image("file:data/first_image.jpg");
+        Image image2 = new Image("file:data/second_image.png");
+        Image image3 = new Image("file:data/third_image.jpg");
+        setImage(image);
+    }   
 }
