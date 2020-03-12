@@ -126,8 +126,10 @@ public class FXMLOfflineInventoryController implements Initializable {
             FXMLOfflineResultsSceneController controller = loader.getController();
             controller.UniqueACodes(reader);
             controller.UniqueBCodes(reader);
+            controller.similarCodes(reader);
             controller.setReader(reader);
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("/CSS/OfflineResultsScene.css");
             window.setScene(scene);
             window.show();
             }

@@ -142,6 +142,21 @@ public class CSV_Reader {
         }
         return uniqueB;
     }
+    
+    public List<Item> similarCodes(CSV_Reader cl){
+        cl.parse();
+        List<Item> similar = new ArrayList();
+        for(int i = 0; i < inventory.size(); i++){
+            boolean code = false;
+            for(int j = 0; j < secondInventory.size(); j++){
+                if(inventory.get(i).getEPCCode().equals(secondInventory.get(j).getEPCCode()))
+                    code = true;
+            }
+            if(code)
+                similar.add(inventory.get(i));
+        }
+        return similar;
+    }
 
     public List<Item> getInventory() {
         return inventory;

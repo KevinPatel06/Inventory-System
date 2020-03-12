@@ -7,4 +7,26 @@ and open the template in the editor.
     Created on : 5-Mar-2020, 3:22:54 PM
     Author     : Kevin Patel
 */
+#two .list-cell {
+        -fx-background-color: lightgreen;
+        -fx-text-fill: black;
+}
+.lvAdded  {
+        -fx-background-color: black;
+}
 
+#one .list-cell{
+        -fx-background-color: tomato;
+        -fx-text-fill: black;
+}
+.lvRemoved{
+        -fx-background-color: black;
+}
+
+.lvRemain{
+        -fx-background-color: black;
+}
+#three .list-cell{
+        -fx-background-color: yellow;
+        -fx-text-fill: black;
+}

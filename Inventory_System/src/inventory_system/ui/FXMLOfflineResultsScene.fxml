@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-stylesheet ../../CSS/OfflineResultsScene.css?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLOfflineResultsSceneController">
-   <children>
-      <Label layoutX="242.0" layoutY="14.0" text="Results">
-         <font>
-            <Font name="Comic Sans MS" size="34.0" />
-         </font>
-      </Label>
-      <Label layoutX="38.0" layoutY="99.0" text="Codes Removed From 1 to 2">
-         <font>
-            <Font name="Comic Sans MS" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="319.0" layoutY="99.0" text="Codes Added From 1 to 2">
-         <font>
-            <Font name="Comic Sans MS" size="18.0" />
-         </font>
-      </Label>
-      <ListView fx:id="lvAdded" layoutX="19.0" layoutY="132.0" prefHeight="200.0" prefWidth="268.0" />
-      <ListView fx:id="lvRemoved" layoutX="291.0" layoutY="132.0" prefHeight="200.0" prefWidth="268.0" />
-      <Button fx:id="btnMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu" />
-      <Button fx:id="btnLists" layoutX="496.0" layoutY="361.0" mnemonicParsing="false" onAction="#goToLists" text="See Both Lists" />
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="inventory_system.controllers.FXMLOfflineResultsSceneController">
+  <children>
+    <Label layoutX="242.0" layoutY="14.0" text="Results">
+      <font>
+        <Font name="Comic Sans MS" size="34.0" />
+      </font>
+    </Label>
+    <Label layoutX="38.0" layoutY="99.0" text="Codes Removed From 1 to 2">
+      <font>
+        <Font name="Comic Sans MS" size="18.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="42.0" layoutY="228.0" text="Codes Added From 1 to 2" />
+    <ListView id="one" fx:id="lvAdded" layoutX="14.0" layoutY="132.0" prefHeight="78.0" prefWidth="268.0" style="" styleClass="lvAdded" />
+    <ListView id="two" fx:id="lvRemoved" layoutX="14.0" layoutY="272.0" prefHeight="78.0" prefWidth="268.0" styleClass="lvRemoved" />
+    <Button fx:id="btnMenu" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu" />
+    <ListView id="three" fx:id="lvRemain" layoutX="359.0" layoutY="132.0" prefHeight="200.0" prefWidth="200.0" styleClass="lvRemain" />
+    <Label font="$x1" layoutX="339.0" layoutY="99.0" minHeight="16.0001220703125" prefHeight="37.0" text="Codes Remaining From 1 to 2" />
+    <TextField fx:id="txtSearch" layoutX="38.0" layoutY="62.0" prefWidth="200.0" promptText="Enter EPC Code" />
+    <Label fx:id="lblSearch" font="$x1" layoutX="369.0" layoutY="62.0" prefWidth="190.0" text="" />
+    <Button fx:id="btnSearch" layoutX="238.0" layoutY="62.0" mnemonicParsing="false" onAction="#search" text="Search" />
+  </children>
 </AnchorPane>

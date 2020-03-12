@@ -14,7 +14,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -29,6 +31,15 @@ public class FXMLOfflineResultsSceneController implements Initializable {
     
     @FXML
     ListView lvRemoved;
+    
+    @FXML
+    ListView lvRemain;
+    
+    @FXML
+    Label lblSearch;
+    
+    @FXML
+    TextField txtSearch;
     
     @FXML
     Button btnMenu;
@@ -66,16 +77,36 @@ public class FXMLOfflineResultsSceneController implements Initializable {
     public void UniqueACodes(CSV_Reader reader){
         List<Item> added = reader.uniqueACodes(reader);
         for(int i = 0; i < added.size(); i++)
-            lvAdded.getItems().add(added.get(i));
-        System.out.println(added.size());
+            lvAdded.getItems().add(added.get(i).getEPCCode());
+        System.out.println("Added: " + added.size());
     }
     
     public void UniqueBCodes(CSV_Reader reader){
         List<Item> removed = reader.uniqueBCodes(reader);
         for(int i = 0; i < removed.size();i++)
-            lvRemoved.getItems().add(removed.get(i));
-        System.out.println(removed.size());
+            lvRemoved.getItems().add(removed.get(i).getEPCCode());
+        System.out.println("Removed: " + removed.size());
     }
+    
+    public void similarCodes(CSV_Reader reader){
+        List<Item> similar = reader.similarCodes(reader);
+        for(int i = 0; i < similar.size(); i++)
+            lvRemain.getItems().add(similar.get(i).getEPCCode());
+        System.out.println("Remain: " + similar.size());
+    }
+    
+    @FXML
+    private void search(ActionEvent event){
+        if(lvAdded.getItems().contains(txtSearch.getText()))
+            lblSearch.setText("In Removed List");
+        else if(lvRemoved.getItems().contains(txtSearch.getText()))
+            lblSearch.setText("In Added List");
+        else if(lvRemain.getItems().contains(txtSearch.getText()))
+            lblSearch.setText("In Remain List");
+        else
+            lblSearch.setText("Code Not Found");
+    }
+    
     @FXML
     private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -84,26 +115,11 @@ public class FXMLOfflineResultsSceneController implements Initializable {
         window.setScene(scene);
         window.show();
     }
-    @FXML
-    private void goToLists(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResults2.fxml"));
-        Parent root = loader.load();
-        Stage window = new Stage();
-//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        FXMLOfflineResults2Controller controller = loader.getController();
-        controller.ACodes(reader);
-        controller.BCodes(reader);
-        Scene scene = new Scene(root);
-        window.setScene(scene);
-        window.show();
-    }
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
 }
