@@ -25,6 +25,7 @@ public class FXMLWelcomePageController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLSelectionPage.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/dark-theme.css");
         window.setScene(scene);
         window.show();
     }

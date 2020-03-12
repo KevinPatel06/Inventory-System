@@ -130,6 +130,7 @@ public class FXMLOfflineInventoryController implements Initializable {
             controller.setReader(reader);
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/CSS/OfflineResultsScene.css");
+            scene.getStylesheets().add("/CSS/dark-theme.css");
             window.setScene(scene);
             window.show();
             }
