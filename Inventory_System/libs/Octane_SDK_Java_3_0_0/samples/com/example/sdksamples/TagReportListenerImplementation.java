@@ -5,7 +5,9 @@ import com.impinj.octane.OctaneSdkException;
 import com.impinj.octane.Tag;
 import com.impinj.octane.TagReport;
 import com.impinj.octane.TagReportListener;
+import inventory_system.controllers.FXMLOnlineInventoryController;
 import inventory_system.models.Item;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -18,26 +20,6 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
-    
-        public void setImage(String EPCCode){
-            
-            if(EPCCode.equals("E280 1160 6000 0207 1112 4297")){
-                //image = new Image("data/first_image.jpg");
-                System.out.println("First");
-            }
-            else if(EPCCode.equals("0000 0000 0000 0000 1005 0833")){
-                //image = new Image("data/second_image.jpg");
-                System.out.println("Second");
-            }
-            else if(EPCCode.equals("0000 0000 0000 0000 1005 0834")){
-                //image = new Image("data/third_image.jpg");
-                System.out.println("Third");
-            }      
-            else{
-                System.out.println("None");
-            }
-            
-        }
     
     @Override
     public void onTagReported(ImpinjReader reader, TagReport report) {
@@ -62,7 +44,40 @@ public class TagReportListenerImplementation implements TagReportListener {
         {
             String epcCode = t.getEpc().toString();
             item = new Item(epcCode);
-            setImage(epcCode);
+            
+            FXMLOnlineInventoryController online = new FXMLOnlineInventoryController();
+            Image image;
+            
+            if(epcCode.equals("E280 1160 6000 0207 1112 4297")){
+                System.out.println("First");
+                try {
+                    online.setImage(image = new Image("file:data/first_image.jpg"));
+                } catch(Exception E){
+                    System.out.println("helo");
+                    System.out.println(E.getMessage());
+                }
+            }
+            else if(epcCode.equals("0000 0000 0000 0000 1005 0833")){
+                System.out.println("Second");
+                try {
+                     online.setImage(image = new Image("file:data/second_image.png"));
+                } catch(Exception E){
+                    System.out.println("helo");
+                    System.out.println(E.getMessage());
+                }
+            }
+            else if(epcCode.equals("0000 0000 0000 0000 1005 0834")){
+                System.out.println("Third");
+                try {
+                online.setImage(image = new Image("file:data/third_image.jpg"));
+                } catch(Exception E){
+                    System.out.println("helo");
+                    System.out.println(E.getMessage());
+                }
+            }      
+            else{
+                System.out.println("None");
+            }
             
             System.out.println(item);
             tagArray[i].set_epc(t.getEpc().toString());
