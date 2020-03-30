@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="inventory_system.controllers.FXMLOfflineInventoryFirstSceneController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="119.0" layoutX="351.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="201.0">
+      <fill>
+        <Color blue="1.000" green="0.161" red="0.000" fx:id="x3" />
+      </fill>
+    </Rectangle>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="74.0" layoutX="52.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
+    <Label layoutX="65.0" layoutY="53.0" prefHeight="28.0" prefWidth="176.0" text="Inventory List Taken On" textFill="WHITE">
+      <font>
+        <Font name="Arial Bold" size="15.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label fx:id="lblFirstDate" layoutX="65.0" layoutY="90.0" text="Date Given" textFill="WHITE">
+      <font>
+        <Font name="System Bold" size="15.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x3" height="119.0" layoutX="351.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
+    <Label font="$x1" layoutX="364.0" layoutY="53.0" prefHeight="28.0" prefWidth="176.0" text="Revised List Taken On" textFill="WHITE" />
+    <Label id="lblFirstDate" fx:id="lblSecondDate" font="$x2" layoutX="364.0" layoutY="90.0" text="Date Given" textFill="WHITE" />
+    <ListView id="four" fx:id="lvFirst" layoutX="52.0" layoutY="180.0" prefHeight="170.0" prefWidth="200.0" />
+    <ListView id="five" fx:id="lvRevised" layoutX="352.0" layoutY="180.0" prefHeight="170.0" prefWidth="200.0" />
+    <Label layoutX="189.0" layoutY="14.0" text="Inventory Mode">
+      <font>
+        <Font name="Arial Bold" size="30.0" />
+      </font>
+    </Label>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="45.0" layoutX="52.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
+    <Label fx:id="lblFirst" font="$x1" layoutX="62.0" layoutY="139.0" text="Unique Tags :" textFill="WHITE" />
+    <Label fx:id="lblSecond" font="$x1" layoutX="364.0" layoutY="141.0" text="Unique Tags :" textFill="WHITE" />
+    <Button fx:id="btnAnalysis" layoutX="464.0" layoutY="18.0" mnemonicParsing="false" onAction="#goToAnalysis" text="Analysis Mode" />
+    <Button layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+  </children>
+</AnchorPane>
