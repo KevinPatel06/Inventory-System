@@ -12,6 +12,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -29,8 +31,12 @@ public class FXMLOfflineInventoryController implements Initializable {
     Label fileNameLabel;
     @FXML
     Label lblFileNameTwo;
+    @FXML
+    ImageView ivCross;
     
     private String csvFile1;
+    private File file1;
+    private File file2;
     private String csvFile2;
     private CSV_Reader reader;
 
@@ -72,11 +78,10 @@ public class FXMLOfflineInventoryController implements Initializable {
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        File f = fc.showOpenDialog(window);
-        if (f != null){
-            String fileTitle = f.getName();
-            csvFile1 = f.getAbsolutePath();
-            fileNameLabel.setText(fileTitle);
+        file1 = fc.showOpenDialog(window);
+        if (file1 != null){
+            csvFile1 = file1.getAbsolutePath();
+            fileNameLabel.setText("First List Selected");
         }    
     }
     
@@ -93,11 +98,10 @@ public class FXMLOfflineInventoryController implements Initializable {
             new FileChooser.ExtensionFilter("CSV File", "*.csv")
         );
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        File f = fc.showOpenDialog(window);
-        if (f != null){
-            String fileTitle = f.getName();
-            csvFile2 = f.getAbsolutePath();
-            lblFileNameTwo.setText(fileTitle);
+        file2 = fc.showOpenDialog(window);
+        if (file2 != null){
+            csvFile2 = file2.getAbsolutePath();
+            lblFileNameTwo.setText("Revised List Selected");
         }    
     }
     
@@ -120,18 +124,29 @@ public class FXMLOfflineInventoryController implements Initializable {
         if(reader.equivalency(reader))
                 System.err.println("The files contain the same EPC Codes.");
         else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
-            Parent root = loader.load();
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineInventoryFirstScene.fxml"));
+            Parent root = loader1.load();
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            FXMLOfflineResultsSceneController controller = loader.getController();
-            controller.UniqueACodes(reader);
-            controller.UniqueBCodes(reader);
-            controller.similarCodes(reader);
-            controller.setReader(reader);
+            FXMLOfflineInventoryFirstSceneController controller1 = loader1.getController();
+            controller1.setFirstDate(file1);
+            controller1.setSecondDate(file2);
+            controller1.setFirstList(reader);
+            controller1.setRevisedList(reader);
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/CSS/OfflineResultsScene.css");
             window.setScene(scene);
             window.show();
+//            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
+//            root = loader2.load();
+//            Scene scene2 = new Scene(root);
+//            scene2.getStylesheets().add("/CSS/OfflineResultsScene.css");
+//            FXMLOfflineResultsSceneController controller = loader2.getController();
+//            controller.UniqueACodes(reader);
+//            controller.UniqueBCodes(reader);
+//            controller.similarCodes(reader);
+//            controller.setReader(reader);
+//            window.setScene(scene);
+//            window.show();
             }
         }
     }
