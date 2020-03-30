@@ -18,7 +18,7 @@ public class Inventory_System extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("ui/FXMLWelcomePage.fxml"));
         Scene scene = new Scene(root);
         
-        scene.getStylesheets().add("/CSS/WelcomePage.css");
+        scene.getStylesheets().add("/CSS/dark-theme.css");
         
         primaryStage.setScene(scene);
         primaryStage.setTitle("Inventory Manager");

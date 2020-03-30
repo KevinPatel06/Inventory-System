@@ -134,6 +134,7 @@ public class FXMLOfflineInventoryController implements Initializable {
             controller1.setRevisedList(reader);
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/CSS/OfflineResultsScene.css");
+            scene.getStylesheets().add("/CSS/dark-theme.css");
             window.setScene(scene);
             window.show();
 //            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
@@ -161,6 +162,7 @@ public class FXMLOfflineInventoryController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLSelectionPage.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/CSS/dark-theme.css");
         window.setScene(scene);
         window.show();
     }
