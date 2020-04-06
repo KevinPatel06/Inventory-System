@@ -8,3 +8,6 @@ and open the template in the editor.
     Author     : Kevin Patel
 */
 
+.root{
+    -fx-background: #456A75;
+}
