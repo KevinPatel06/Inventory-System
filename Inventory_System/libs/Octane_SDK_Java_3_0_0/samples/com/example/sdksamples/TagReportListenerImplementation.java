@@ -20,6 +20,7 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
+    public String EPCcode;
     
     @Override
     public void onTagReported(ImpinjReader reader, TagReport report) {
@@ -48,28 +49,10 @@ public class TagReportListenerImplementation implements TagReportListener {
             FXMLOnlineInventoryController online = new FXMLOnlineInventoryController();
             Image image;
             
-            if(epcCode.equals("E280 1160 6000 0207 1112 4297")){
+            if(epcCode.equals(EPCcode)){
                 System.out.println("First");
                 try {
                     online.setImage(image = new Image("file:data/first_image.jpg"));
-                } catch(Exception E){
-                    System.out.println("helo");
-                    System.out.println(E.getMessage());
-                }
-            }
-            else if(epcCode.equals("0000 0000 0000 0000 1005 0833")){
-                System.out.println("Second");
-                try {
-                     online.setImage(image = new Image("file:data/second_image.png"));
-                } catch(Exception E){
-                    System.out.println("helo");
-                    System.out.println(E.getMessage());
-                }
-            }
-            else if(epcCode.equals("0000 0000 0000 0000 1005 0834")){
-                System.out.println("Third");
-                try {
-                online.setImage(image = new Image("file:data/third_image.jpg"));
                 } catch(Exception E){
                     System.out.println("helo");
                     System.out.println(E.getMessage());
