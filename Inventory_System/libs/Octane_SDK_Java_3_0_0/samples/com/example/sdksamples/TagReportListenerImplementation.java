@@ -22,10 +22,18 @@ public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
     public String EPCcode;
     
+    public void setEPCcode(String epccode){
+        this.EPCcode = epccode;
+    }
+    
+    FXMLOnlineInventoryController c1 = new FXMLOnlineInventoryController();
+    ReadTags r1 =  new ReadTags();
+    
     @Override
     public void onTagReported(ImpinjReader reader, TagReport report) {
-       
         
+        setEPCcode(c1.getEPC());
+       
         Search[] mySearch=new Search[1000000];
         for (int k=0;k<1000000;k++)
         {
@@ -49,22 +57,25 @@ public class TagReportListenerImplementation implements TagReportListener {
             FXMLOnlineInventoryController online = new FXMLOnlineInventoryController();
             Image image;
             
-            if(epcCode.equals(EPCcode)){
-                System.out.println("First");
-                try {
-                    online.setImage(image = new Image("file:data/first_image.jpg"));
-                } catch(Exception E){
-                    System.out.println("helo");
-                    System.out.println(E.getMessage());
-                }
+            if(epcCode.equalsIgnoreCase(this.EPCcode)){
+                System.out.println("IT WORKS!");
+                break;
+                
             }      
             else{
-                System.out.println("None");
+                System.out.println("No");
+                try {
+                    r1.Stop();
+                    break;
+                } catch (OctaneSdkException ex) {
+                    Logger.getLogger(TagReportListenerImplementation.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
-            System.out.println(item);
+            //System.out.println(item);
+            System.out.println(EPCcode);
             tagArray[i].set_epc(t.getEpc().toString());
-            
+            /*
             if (reader.getAddress() != null){
                
                System.out.println(" Reader_ip: " + reader.getAddress());
@@ -134,6 +145,7 @@ public class TagReportListenerImplementation implements TagReportListener {
                         t.getModelDetails().getUserMemorySizeBits());
             }
 
+            */
         //  System.out.println("");
        //   System.out.println(tagArray[i].toString());
            

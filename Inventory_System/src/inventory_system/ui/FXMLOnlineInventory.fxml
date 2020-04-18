@@ -73,10 +73,15 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <TextField fx:id="textOne" layoutX="155.0" layoutY="121.0" text="EPC" />
-      <TextField fx:id="textTwo" layoutX="155.0" layoutY="173.0" text="EPC" />
-      <TextField fx:id="textThree" layoutX="155.0" layoutY="229.0" text="EPC" />
-      <TextField fx:id="textFour" layoutX="155.0" layoutY="281.0" text="EPC" />
-      <TextField fx:id="textFive" layoutX="155.0" layoutY="334.0" text="EPC" />
+      <TextField fx:id="textOne" layoutX="155.0" layoutY="121.0" promptText="EPC" />
+      <TextField fx:id="textTwo" layoutX="155.0" layoutY="173.0" promptText="EPC" />
+      <TextField fx:id="textThree" layoutX="155.0" layoutY="229.0" promptText="EPC" />
+      <TextField fx:id="textFour" layoutX="155.0" layoutY="281.0" promptText="EPC" />
+      <TextField fx:id="textFive" layoutX="155.0" layoutY="334.0" promptText="EPC" />
+      <Text fill="WHITE" layoutX="222.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IMPORTANT: Press &quot;Enter&quot; before pressing the browse button agian" wrappingWidth="285.4022216796875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

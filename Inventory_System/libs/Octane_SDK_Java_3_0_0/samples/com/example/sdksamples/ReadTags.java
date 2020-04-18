@@ -1,12 +1,20 @@
 package com.example.sdksamples;
 
 import com.impinj.octane.*;
+import inventory_system.controllers.FXMLOnlineInventoryController;
 
 import java.util.Scanner;
 
 
 public class ReadTags {
 
+    private static ImpinjReader reader;
+    
+    public void Stop() throws OctaneSdkException{
+        ReadTags.reader.stop();
+         ReadTags.reader.disconnect();
+    }
+    
     public static void main(String[] args) {
 
         try {
@@ -17,7 +25,7 @@ public class ReadTags {
                         + SampleProperties.hostname + "' property");
             }
 
-            ImpinjReader reader = new ImpinjReader();
+            reader = new ImpinjReader();
 
             System.out.println("Connecting");
             reader.connect("192.168.2.225");
@@ -58,7 +66,12 @@ public class ReadTags {
             antennas.getAntenna((short) 4).setTxPowerinDbm(12.0);
             antennas.getAntenna((short) 4).setRxSensitivityinDbm(-70);
 
-            reader.setTagReportListener(new TagReportListenerImplementation());
+            FXMLOnlineInventoryController onlineInv = new FXMLOnlineInventoryController();
+            TagReportListenerImplementation tagOne = new TagReportListenerImplementation();
+            tagOne.setEPCcode(onlineInv.getEPC());
+            
+            reader.setTagReportListener(tagOne);
+            
 
             System.out.println("Applying Settings");
             reader.applySettings(settings);

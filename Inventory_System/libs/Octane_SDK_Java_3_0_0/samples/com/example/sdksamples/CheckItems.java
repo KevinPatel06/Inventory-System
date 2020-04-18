@@ -9,7 +9,7 @@ public class CheckItems extends javax.swing.JFrame {
         //initComponents();
     }
     
-    public void startReading(String EPCcode){
+    public void startReading(){
         a.start();
     }
     

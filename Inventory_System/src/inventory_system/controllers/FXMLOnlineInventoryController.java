@@ -38,6 +38,8 @@ public class FXMLOnlineInventoryController implements Initializable {
     @FXML
     private TextField textFive;
     
+    public String EPCcode;
+    
     private final CheckItems ci = new CheckItems();
     
     public void setImage(Image image){
@@ -46,40 +48,52 @@ public class FXMLOnlineInventoryController implements Initializable {
 
     @FXML private void readTagsOne(){
         if(textOne.getText() != null && !textOne.getText().isEmpty()){
-            //ci.startReading();
-            String EPCcode = textOne.getText();
-            System.out.println("One Working!" + EPCcode);
+            String epcCode = textOne.getText();
+            setEPC(epcCode);
+            System.out.println(epcCode);
+            ci.startReading();
         }
     }
     @FXML private void readTagsTwo(){
         if(textTwo.getText() != null && !textTwo.getText().isEmpty()){
-            //ci.startReading();
-            String EPCcode = textTwo.getText();
-            System.out.println("Two Working!" + EPCcode);
+            String epcCode = textTwo.getText();
+            setEPC(epcCode);
+            System.out.println(epcCode);
+            ci.startReading();
         }
     }
     @FXML private void readTagsThree(){
         if(textThree.getText() != null && !textThree.getText().isEmpty()){
-            //ci.startReading();
-            String EPCcode = textThree.getText();
-            System.out.println("Three Working!" + EPCcode);
+            String epcCode = textThree.getText();
+            setEPC(epcCode);
+            System.out.println(epcCode);
+            ci.startReading();
         }
     }
     @FXML private void readTagsFour(){
         if(textFour.getText() != null && !textFour.getText().isEmpty()){
-            //ci.startReading();
-            String EPCcode = textFour.getText();
-            System.out.println("Four Working!" + EPCcode);
+            String epcCode = textFour.getText();
+            setEPC(epcCode);
+            System.out.println(epcCode);
+            ci.startReading();
         }
     }
     @FXML private void readTagsFive(){
         if(textFive.getText() != null && !textFive.getText().isEmpty()){
-            //ci.startReading();
-            String EPCcode = textFive.getText();
-            System.out.println("Five Working!" + EPCcode);
+            String epcCode = textFive.getText();
+            setEPC(epcCode);
+            System.out.println(epcCode);
+            ci.startReading();
         }
     }
     
+    public String getEPC(){
+        return EPCcode;
+    }
+    
+    public void setEPC(String EPC){
+        this.EPCcode = EPC;
+    }
     
     @FXML private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
