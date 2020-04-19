@@ -17,7 +17,7 @@
         <Font name="Arial Bold" size="50.0" />
       </font>
     </Label>
-    <Label fx:id="fileNameLabel" layoutX="138.0" layoutY="251.0" prefHeight="23.0" prefWidth="131.0" text="">
+    <Label fx:id="fileNameLabel" layoutX="138.0" layoutY="251.0" prefHeight="23.0" prefWidth="333.0" text="">
       <font>
         <Font name="Comic Sans MS" size="16.0" fx:id="x1" />
       </font>
@@ -29,21 +29,21 @@
       </font>
     </Button>
     <Button fx:id="fileSelectbtn2" layoutX="514.0" layoutY="356.0" mnemonicParsing="false" onAction="#fileSelectTwo" prefHeight="32.0" prefWidth="131.0" text="Browse" />
-    <Label fx:id="lblFileNameTwo" font="$x1" layoutX="138.0" layoutY="400.0" prefHeight="23.0" prefWidth="131.0" text="" />
+    <Label fx:id="lblFileNameTwo" font="$x1" layoutX="138.0" layoutY="400.0" prefHeight="23.0" prefWidth="333.0" text="" />
     <Button fx:id="compareBtn" layoutX="310.0" layoutY="486.0" mnemonicParsing="false" onAction="#compare" prefHeight="55.0" prefWidth="180.0" text="Compare" />
     <ImageView fx:id="ivCross" blendMode="SRC_ATOP" fitHeight="115.0" fitWidth="120.0" layoutX="190.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@../../../data/offline_cross.png" />
       </image>
     </ImageView>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="47.0" layoutX="139.0" layoutY="198.0" stroke="BLACK" strokeType="INSIDE" width="333.0" />
-    <Label layoutX="174.0" layoutY="205.0" text="First Inventory List">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#768c79" height="47.0" layoutX="139.0" layoutY="198.0" stroke="BLACK" strokeType="INSIDE" width="333.0" />
+    <Label layoutX="176.0" layoutY="204.0" text="First Inventory List">
       <font>
         <Font name="Arial" size="30.0" fx:id="x2" />
       </font>
     </Label>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="47.0" layoutX="139.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="333.0" />
-    <Label font="$x2" layoutX="149.0" layoutY="354.0" text="Revised Inventory List" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#768c79" height="47.0" layoutX="139.0" layoutY="347.0" stroke="BLACK" strokeType="INSIDE" width="333.0" />
+    <Label font="$x2" layoutX="155.0" layoutY="353.0" text="Revised Inventory List" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="141.0" layoutX="-4.0" layoutY="-7.0" mouseTransparent="true" opacity="0.32" stroke="BLACK" strokeType="INSIDE" width="807.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">

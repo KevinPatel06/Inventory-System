@@ -5,13 +5,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLHelpOfflineController">
+<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="450.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLHelpOfflineController">
    <children>
-      <Text layoutX="25.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Offline Guide: " wrappingWidth="206.99774169921875">
+      <Text fill="WHITE" layoutX="25.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Offline Guide: " wrappingWidth="206.99774169921875">
          <font>
             <Font size="22.0" />
          </font></Text>
-      <Text layoutX="29.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To use this inventory manager, you must first select two files, both of which being CSV files (.CSV), and within these CSV files, are the EPC codes of the products/items within your inventory. This application will then compare both inventories for items that are unique to inventory A or B " wrappingWidth="391.78681659698486">
+      <Text fill="WHITE" layoutX="29.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To use this inventory manager, you must first select two files, both of which being CSV files (.CSV), and within these CSV files, are the EPC codes of the products/items within your inventory. This application will then compare both inventories for items that are unique to inventory A or B " wrappingWidth="391.78681659698486">
          <font>
             <Font size="20.0" />
          </font></Text>

@@ -13,11 +13,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLOfflineResultsSceneController">
   <children>
-    <Label layoutX="349.0" text="Results">
-      <font>
-        <Font name="Arial" size="41.0" />
-      </font>
-    </Label>
     <Label layoutX="20.0" layoutY="129.0" text="Codes Removed From 1 to 2">
       <font>
         <Font name="Arial" size="21.0" fx:id="x1" />
@@ -26,7 +21,7 @@
     <Label font="$x1" layoutX="35.0" layoutY="337.0" text="Codes Added From 1 to 2" />
     <ListView id="one" fx:id="lvAdded" layoutX="21.0" layoutY="179.0" prefHeight="141.0" prefWidth="268.0" style="" styleClass="lvAdded" />
     <ListView id="two" fx:id="lvRemoved" layoutX="21.0" layoutY="384.0" prefHeight="141.0" prefWidth="268.0" styleClass="lvRemoved" />
-    <Button fx:id="btnMenu" layoutY="568.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu" />
+    <Button fx:id="btnMenu" layoutX="338.0" layoutY="526.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu" />
     <ListView id="three" fx:id="lvRemain" layoutX="490.0" layoutY="192.0" prefHeight="315.0" prefWidth="268.0" styleClass="lvRemain" />
     <Label layoutX="484.0" layoutY="135.0" minHeight="16.0001220703125" prefHeight="37.0" text="Codes Remaining From 1 to 2">
          <font>
@@ -34,7 +29,6 @@
          </font></Label>
     <TextField fx:id="txtSearch" layoutX="21.0" layoutY="94.0" prefWidth="200.0" promptText="Enter EPC Code" />
     <Label fx:id="lblSearch" font="$x1" layoutX="434.0" layoutY="96.0" prefWidth="190.0" text="" />
-    <Button fx:id="btnSearch" layoutX="221.0" layoutY="93.0" mnemonicParsing="false" onAction="#search" text="Search" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="105.0" layoutX="-1.0" layoutY="-19.0" opacity="0.32" stroke="BLACK" strokeType="INSIDE" width="838.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
@@ -44,5 +38,11 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
+    <Button fx:id="btnSearch" layoutX="221.0" layoutY="93.0" mnemonicParsing="false" onAction="#search" text="Search" />
+    <Label layoutX="350.0" layoutY="14.0" text="Results">
+      <font>
+        <Font name="Arial" size="41.0" />
+      </font>
+    </Label>
   </children>
 </AnchorPane>
