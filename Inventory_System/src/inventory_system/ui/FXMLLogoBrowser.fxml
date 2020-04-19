@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="375.0" prefWidth="390.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLLogoBrowserController">
+   <children>
+      <Label layoutX="47.0" layoutY="66.0" text="File 1">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="116.0" text="File 2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="166.0" text="File 3">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="216.0" text="File 4">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="266.0" text="File 5">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnBack" layoutX="62.0" layoutY="315.0" mnemonicParsing="false" onAction="#backToScene" text="Back" />
+      <Label layoutX="120.0" layoutY="21.0" text="Set Logo for EPC">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="294.0" layoutY="65.0" mnemonicParsing="false" onAction="#setImageOne" text="Set" />
+      <Button layoutX="294.0" layoutY="115.0" mnemonicParsing="false" onAction="#setImageTwo" text="Set" />
+      <Button layoutX="294.0" layoutY="165.0" mnemonicParsing="false" onAction="#setImageThree" text="Set" />
+      <Button layoutX="294.0" layoutY="215.0" mnemonicParsing="false" onAction="#setImageFour" text="Set" />
+      <Button layoutX="294.0" layoutY="265.0" mnemonicParsing="false" onAction="#setImageFive" text="Set" />
+      <Label fx:id="lbOne" layoutX="111.0" layoutY="65.0" prefHeight="26.0" prefWidth="170.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbFive" layoutX="112.0" layoutY="265.0" prefHeight="26.0" prefWidth="170.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbFour" layoutX="111.0" layoutY="214.0" prefHeight="26.0" prefWidth="170.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbThree" layoutX="111.0" layoutY="165.0" prefHeight="26.0" prefWidth="170.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTwo" layoutX="111.0" layoutY="115.0" prefHeight="26.0" prefWidth="170.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

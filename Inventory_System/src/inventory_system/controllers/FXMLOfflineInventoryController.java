@@ -12,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -106,7 +105,6 @@ public class FXMLOfflineInventoryController implements Initializable {
     }
     
     /**
-     * 
      * @param event
      * @return 
      */
@@ -118,8 +116,6 @@ public class FXMLOfflineInventoryController implements Initializable {
         if(csvFile2 == null)
             System.err.println("\nError: Second file is missing. Please select a file.");
         else{
-//        String firstFile = csvFile1;
-//        String secondFile = csvFile2;
         this.reader = new CSV_Reader(csvFile1, csvFile2);
         if(reader.equivalency(reader))
                 System.err.println("The files contain the same EPC Codes.");
@@ -133,8 +129,6 @@ public class FXMLOfflineInventoryController implements Initializable {
             controller1.setFirstList(reader);
             controller1.setRevisedList(reader);
             Scene scene = new Scene(root);
-            scene.getStylesheets().add("/CSS/OfflineResultsScene.css");
-            scene.getStylesheets().add("/CSS/dark-theme.css");
             window.setScene(scene);
             window.show();
             }
@@ -151,7 +145,6 @@ public class FXMLOfflineInventoryController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLSelectionPage.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("../CSS/dark-theme.css");
         window.setScene(scene);
         window.show();
     }
@@ -161,7 +154,6 @@ public class FXMLOfflineInventoryController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLHelpOffline.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("../ui/dark-theme.css");
         window.setScene(scene);
         window.show();
     }

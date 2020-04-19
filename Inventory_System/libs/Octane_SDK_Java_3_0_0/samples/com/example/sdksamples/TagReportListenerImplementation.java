@@ -1,35 +1,30 @@
 package com.example.sdksamples;
-
 import com.impinj.octane.ImpinjReader;
-import com.impinj.octane.OctaneSdkException;
 import com.impinj.octane.Tag;
 import com.impinj.octane.TagReport;
 import com.impinj.octane.TagReportListener;
 import inventory_system.controllers.FXMLOnlineInventoryController;
 import inventory_system.models.Item;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.image.Image;
-import javax.sound.sampled.LineUnavailableException;
-
-
 
 public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
     private String EPCcode;
+    private String imagePath;
     
     public void setEPCcode(){
         this.EPCcode = FXMLOnlineInventoryController.EPCcode;
+    }
+    
+    public void setImage(){
+        this.imagePath = FXMLOnlineInventoryController.primePath;
     }
   
     @Override
     public void onTagReported(ImpinjReader reader, TagReport report) {
         
         setEPCcode();
+        setImage();
        
         Search[] mySearch=new Search[1000000];
         for (int k=0;k<1000000;k++)
@@ -50,21 +45,17 @@ public class TagReportListenerImplementation implements TagReportListener {
         {
             String epcCode = t.getEpc().toString();
             item = new Item(epcCode);
-            System.out.println(EPCcode + "Tag Listener");
-            
-            //System.out.println(reader.getAddress());
 
             if(epcCode.equalsIgnoreCase(this.EPCcode)){
-                System.out.println("IT WORKS!");
-                
+                System.out.println(EPCcode);
+                System.out.println(reader.getAddress());
+                System.out.println(imagePath);
                 break;
             }      
             else{
-                System.out.println("No");
-            }
+                System.out.println("EPC codes do not match");
+            } 
             
-            //System.out.println(item);
-            //System.out.println(EPCcode);
             tagArray[i].set_epc(t.getEpc().toString());
             /*
             if (reader.getAddress() != null){
