@@ -20,19 +20,16 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
-    public String EPCcode;
+    private String EPCcode;
     
-    public void setEPCcode(String epccode){
-        this.EPCcode = epccode;
+    public void setEPCcode(){
+        this.EPCcode = FXMLOnlineInventoryController.EPCcode;
     }
-    
-    FXMLOnlineInventoryController c1 = new FXMLOnlineInventoryController();
-    ReadTags r1 =  new ReadTags();
-    
+  
     @Override
     public void onTagReported(ImpinjReader reader, TagReport report) {
         
-        setEPCcode(c1.getEPC());
+        setEPCcode();
        
         Search[] mySearch=new Search[1000000];
         for (int k=0;k<1000000;k++)
@@ -53,24 +50,21 @@ public class TagReportListenerImplementation implements TagReportListener {
         {
             String epcCode = t.getEpc().toString();
             item = new Item(epcCode);
+            System.out.println(EPCcode + "Tag Listener");
             
-            System.out.println(reader.getAddress());
+            //System.out.println(reader.getAddress());
 
             if(epcCode.equalsIgnoreCase(this.EPCcode)){
                 System.out.println("IT WORKS!");
+                
+                break;
             }      
             else{
                 System.out.println("No");
-                try {
-                    reader.disconnect();
-                    reader.stop();
-                } catch (OctaneSdkException ex) {
-                    Logger.getLogger(TagReportListenerImplementation.class.getName()).log(Level.SEVERE, null, ex);
-                }
             }
             
             //System.out.println(item);
-            System.out.println(EPCcode);
+            //System.out.println(EPCcode);
             tagArray[i].set_epc(t.getEpc().toString());
             /*
             if (reader.getAddress() != null){

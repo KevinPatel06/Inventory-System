@@ -37,7 +37,7 @@ public class FXMLOnlineInventoryController implements Initializable {
     @FXML
     private Text ipBox;
     
-    public String EPCcode;
+    public static String EPCcode;
     
     private final CheckItems ci = new CheckItems();
 
@@ -45,7 +45,6 @@ public class FXMLOnlineInventoryController implements Initializable {
         if(textOne.getText() != null && !textOne.getText().isEmpty()){
             String epcCode = textOne.getText();
             setEPC(epcCode);
-            System.out.println(epcCode);
             ci.startReading();
         }
     }
@@ -53,7 +52,6 @@ public class FXMLOnlineInventoryController implements Initializable {
         if(textTwo.getText() != null && !textTwo.getText().isEmpty()){
             String epcCode = textTwo.getText();
             setEPC(epcCode);
-            System.out.println(epcCode);
             ci.startReading();
         }
     }
@@ -61,7 +59,6 @@ public class FXMLOnlineInventoryController implements Initializable {
         if(textThree.getText() != null && !textThree.getText().isEmpty()){
             String epcCode = textThree.getText();
             setEPC(epcCode);
-            System.out.println(epcCode);
             ci.startReading();
         }
     }
@@ -69,7 +66,6 @@ public class FXMLOnlineInventoryController implements Initializable {
         if(textFour.getText() != null && !textFour.getText().isEmpty()){
             String epcCode = textFour.getText();
             setEPC(epcCode);
-            System.out.println(epcCode);
             ci.startReading();
         }
     }
@@ -77,7 +73,6 @@ public class FXMLOnlineInventoryController implements Initializable {
         if(textFive.getText() != null && !textFive.getText().isEmpty()){
             String epcCode = textFive.getText();
             setEPC(epcCode);
-            System.out.println(epcCode);
             ci.startReading();
         }
     }

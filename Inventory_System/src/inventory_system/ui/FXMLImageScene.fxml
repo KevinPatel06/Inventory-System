@@ -3,15 +3,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="inventory_system.controllers.FXMLImageSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLImageSceneController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="47.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reader IP Address : " />
-      <Text layoutX="47.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and Time completed" wrappingWidth="105.240234375" />
-      <Label fx:id="lbAddress" layoutX="186.0" layoutY="223.0" />
-      <Label fx:id="lbDate" layoutX="186.0" layoutY="274.0" />
+      <Text fill="WHITE" layoutX="47.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reader IP Address : ">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="47.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date &amp; Time completed: " wrappingWidth="116.2603759765625">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Label fx:id="lbAddress" layoutX="234.0" layoutY="219.0" prefHeight="18.0" prefWidth="65.0" text="ADDRESS" textFill="WHITE" />
+      <Label fx:id="lbDate" layoutX="180.0" layoutY="283.0" prefHeight="18.0" prefWidth="158.0" text="HH/MM/SS, DD/MM/YY" textFill="WHITE" />
    </children>
 </AnchorPane>

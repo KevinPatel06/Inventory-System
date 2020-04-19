@@ -4,6 +4,7 @@ package com.example.sdksamples;
 
 public class CheckItems extends javax.swing.JFrame {
 
+    
     ThreadA a = new ThreadA();
     public CheckItems() {
         //initComponents();

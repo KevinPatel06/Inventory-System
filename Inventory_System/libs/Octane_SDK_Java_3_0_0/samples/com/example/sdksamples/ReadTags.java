@@ -1,7 +1,6 @@
 package com.example.sdksamples;
 
 import com.impinj.octane.*;
-import inventory_system.controllers.FXMLOnlineInventoryController;
 
 import java.util.Scanner;
 
@@ -10,9 +9,10 @@ public class ReadTags {
 
     private static ImpinjReader reader;
     
-    public void Stop() throws OctaneSdkException{
-        ReadTags.reader.stop();
-         ReadTags.reader.disconnect();
+    private static String EPCcode;
+    
+    public static void setEPC(String epcCode){
+        ReadTags.EPCcode = epcCode;
     }
     
     public static void main(String[] args) {
@@ -66,10 +66,7 @@ public class ReadTags {
             antennas.getAntenna((short) 4).setTxPowerinDbm(12.0);
             antennas.getAntenna((short) 4).setRxSensitivityinDbm(-70);
 
-            FXMLOnlineInventoryController onlineInv = new FXMLOnlineInventoryController();
             TagReportListenerImplementation tagOne = new TagReportListenerImplementation();
-            tagOne.setEPCcode(onlineInv.getEPC());
-            
             reader.setTagReportListener(tagOne);
             
 
