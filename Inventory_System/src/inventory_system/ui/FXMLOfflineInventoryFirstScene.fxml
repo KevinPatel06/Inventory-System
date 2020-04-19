@@ -42,7 +42,7 @@
     <Label fx:id="lblFirst" font="$x1" layoutX="98.0" layoutY="196.0" text="Unique Tags :" textFill="WHITE" />
     <Label fx:id="lblSecond" font="$x1" layoutX="486.0" layoutY="197.0" text="Unique Tags :" textFill="WHITE" />
     <Button fx:id="btnAnalysis" layoutX="330.0" layoutY="527.0" mnemonicParsing="false" onAction="#goToAnalysis" text="Analysis Mode" />
-    <Button layoutY="570.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+    <Button layoutX="33.0" layoutY="527.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="141.0" layoutY="-33.0" opacity="0.32" stroke="BLACK" strokeType="INSIDE" width="838.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
@@ -52,5 +52,6 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
+      <Button fx:id="btnHelp" layoutX="662.0" layoutY="527.0" mnemonicParsing="false" onAction="#openHelp" text="How to Use?" />
   </children>
 </AnchorPane>

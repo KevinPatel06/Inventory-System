@@ -12,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -25,9 +25,6 @@ import javafx.stage.Stage;
 public class FXMLOnlineInventoryController implements Initializable {
     
     @FXML
-    private ImageView imageWindow;
-    
-    @FXML
     private TextField textOne;
     @FXML
     private TextField textTwo;
@@ -37,14 +34,12 @@ public class FXMLOnlineInventoryController implements Initializable {
     private TextField textFour;
     @FXML
     private TextField textFive;
+    @FXML
+    private Text ipBox;
     
     public String EPCcode;
     
     private final CheckItems ci = new CheckItems();
-    
-    public void setImage(Image image){
-        imageWindow.setImage(image);
-    }
 
     @FXML private void readTagsOne(){
         if(textOne.getText() != null && !textOne.getText().isEmpty()){
@@ -87,6 +82,10 @@ public class FXMLOnlineInventoryController implements Initializable {
         }
     }
     
+    public void displayIP(String ipAddress){
+        this.ipBox.setText(ipAddress);
+    }
+    
     public String getEPC(){
         return EPCcode;
     }
@@ -103,6 +102,17 @@ public class FXMLOnlineInventoryController implements Initializable {
         window.setScene(scene);
         window.show();
     }
+    
+    @FXML
+    private void openHelp(ActionEvent event) throws IOException{
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLHelpOnline.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("../ui/dark-theme.css");
+        window.setScene(scene);
+        window.show();
+    }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

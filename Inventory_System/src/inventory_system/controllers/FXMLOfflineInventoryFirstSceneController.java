@@ -109,10 +109,17 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
             window.setScene(scene);
             window.show();
     }
+    
+    @FXML
+    private void openHelp(ActionEvent event) throws IOException{
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineAnalysisHelp.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("../ui/dark-theme.css");
+        window.setScene(scene);
+        window.show();
+    }
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

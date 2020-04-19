@@ -137,17 +137,6 @@ public class FXMLOfflineInventoryController implements Initializable {
             scene.getStylesheets().add("/CSS/dark-theme.css");
             window.setScene(scene);
             window.show();
-//            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
-//            root = loader2.load();
-//            Scene scene2 = new Scene(root);
-//            scene2.getStylesheets().add("/CSS/OfflineResultsScene.css");
-//            FXMLOfflineResultsSceneController controller = loader2.getController();
-//            controller.UniqueACodes(reader);
-//            controller.UniqueBCodes(reader);
-//            controller.similarCodes(reader);
-//            controller.setReader(reader);
-//            window.setScene(scene);
-//            window.show();
             }
         }
     }
@@ -162,7 +151,17 @@ public class FXMLOfflineInventoryController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLSelectionPage.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/CSS/dark-theme.css");
+        scene.getStylesheets().add("../CSS/dark-theme.css");
+        window.setScene(scene);
+        window.show();
+    }
+    
+    @FXML
+    private void openHelp(ActionEvent event) throws IOException{
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLHelpOffline.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("../ui/dark-theme.css");
         window.setScene(scene);
         window.show();
     }

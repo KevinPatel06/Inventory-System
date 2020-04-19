@@ -10,27 +10,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLSelectionPageController">
    <children>
-      <Button fx:id="btnOffline" blendMode="SRC_ATOP" layoutX="81.0" layoutY="317.0" mnemonicParsing="false" onAction="#offlineInventoryScene" prefHeight="47.0" prefWidth="157.0" text="Offline">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font></Button>
-      <Button fx:id="btnOnline" layoutX="556.0" layoutY="317.0" mnemonicParsing="false" onAction="#onlineInventoryScene" prefHeight="32.0" prefWidth="157.0" text="Online">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-      </Button>
       <Label layoutX="87.0" layoutY="56.0" text="Please Choose Your System">
          <font>
             <Font name="Arial" size="49.0" />
          </font>
       </Label>
-      <Button fx:id="btnBack" blendMode="SRC_ATOP" layoutY="570.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu">
+      <Button fx:id="btnBack" blendMode="SRC_ATOP" layoutX="349.0" layoutY="496.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu">
          <font>
             <Font name="Comic Sans MS" size="12.0" />
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6e7073" height="141.0" layoutX="-3.0" layoutY="-7.0" opacity="0.43" stroke="BLACK" strokeType="INSIDE" width="807.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="333.0" layoutY="131.0" mouseTransparent="true" opacity="0.25" stroke="BLACK" strokeType="INSIDE" width="403.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="333.0" layoutX="18.0" layoutY="131.0" mouseTransparent="true" opacity="0.25" stroke="BLACK" strokeType="INSIDE" width="385.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -40,7 +31,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="333.0" layoutX="401.0" layoutY="131.0" mouseTransparent="true" opacity="0.25" stroke="BLACK" strokeType="INSIDE" width="403.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="333.0" layoutX="401.0" layoutY="131.0" mouseTransparent="true" opacity="0.25" stroke="BLACK" strokeType="INSIDE" width="385.0">
          <fill>
             <LinearGradient endY="1.0" startX="1.0">
                <stops>
@@ -50,5 +41,14 @@
             </LinearGradient>
          </fill>
       </Rectangle>
+      <Button fx:id="btnOffline" blendMode="SRC_ATOP" layoutX="132.0" layoutY="282.0" mnemonicParsing="false" onAction="#offlineInventoryScene" prefHeight="47.0" prefWidth="157.0" text="Offline">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font></Button>
+      <Button fx:id="btnOnline" layoutX="515.0" layoutY="282.0" mnemonicParsing="false" onAction="#onlineInventoryScene" prefHeight="32.0" prefWidth="157.0" text="Online">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

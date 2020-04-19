@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="inventory_system.controllers.FXMLImageSceneController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="47.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reader IP Address : " />
+      <Text layoutX="47.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and Time completed" wrappingWidth="105.240234375" />
+      <Label fx:id="lbAddress" layoutX="186.0" layoutY="223.0" />
+      <Label fx:id="lbDate" layoutX="186.0" layoutY="274.0" />
+   </children>
+</AnchorPane>

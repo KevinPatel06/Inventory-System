@@ -54,19 +54,16 @@ public class TagReportListenerImplementation implements TagReportListener {
             String epcCode = t.getEpc().toString();
             item = new Item(epcCode);
             
-            FXMLOnlineInventoryController online = new FXMLOnlineInventoryController();
-            Image image;
-            
+            System.out.println(reader.getAddress());
+
             if(epcCode.equalsIgnoreCase(this.EPCcode)){
                 System.out.println("IT WORKS!");
-                break;
-                
             }      
             else{
                 System.out.println("No");
                 try {
-                    r1.Stop();
-                    break;
+                    reader.disconnect();
+                    reader.stop();
                 } catch (OctaneSdkException ex) {
                     Logger.getLogger(TagReportListenerImplementation.class.getName()).log(Level.SEVERE, null, ex);
                 }
