@@ -3,9 +3,19 @@ import com.impinj.octane.ImpinjReader;
 import com.impinj.octane.Tag;
 import com.impinj.octane.TagReport;
 import com.impinj.octane.TagReportListener;
+import inventory_system.controllers.FXMLImageSceneController;
 import inventory_system.controllers.FXMLOnlineInventoryController;
 import inventory_system.models.Item;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class TagReportListenerImplementation implements TagReportListener {
     private static int i=0;
@@ -47,9 +57,37 @@ public class TagReportListenerImplementation implements TagReportListener {
             item = new Item(epcCode);
 
             if(epcCode.equalsIgnoreCase(this.EPCcode)){
+                
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+                LocalDateTime now = LocalDateTime.now(); 
+                String time = dtf.format(now);
+                System.out.println(time);
                 System.out.println(EPCcode);
                 System.out.println(reader.getAddress());
                 System.out.println(imagePath);
+                
+                //Here are the window opening attempts
+                
+                //ImageSceneLoaderTwo i2 = new ImageSceneLoaderTwo();
+                /*
+                ThreadB b = new ThreadB();
+                b.start();
+                try {
+                    FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../ui/FXMLOnlineInventory.fxml"));
+                    Parent root = loader1.load();
+                    Stage window = new Stage();
+                    FXMLImageSceneController controller1 = loader1.getController();
+                    
+                    controller1.setData(reader.getAddress(), time);
+                    
+                    Scene scene = new Scene(root);
+                    window.setScene(scene);
+                    window.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(TagReportListenerImplementation.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Not working");
+                }
+                */
                 break;
             }      
             else{

@@ -131,18 +131,37 @@ public class FXMLLogoBrowserController implements Initializable {
         
         if(file1 != null){
             controller1.setImageOne(imageOnePath);
+            controller1.setLabelOne("Image Ready");
+        }else{
+            controller1.setLabelOne("Image not Ready");
         }
+        
         if(file2 != null){
             controller1.setImageTwo(imageTwoPath);
+            controller1.setLabelTwo("Image Ready");
+        }else{
+            controller1.setLabelTwo("Image not Ready");
         }
+        
         if(file3 != null){
             controller1.setImageThree(imageThreePath);
+            controller1.setLabelThree("Image Ready");
+        }else{
+            controller1.setLabelThree("Image not Ready");
         }
+        
         if(file4 != null){
             controller1.setImageFour(imageFourPath);
+            controller1.setLabelFour("Image Ready");
+        }else{
+            controller1.setLabelFour("Image not Ready");
         }
+        
         if(file5 != null){
             controller1.setImageFive(imageFivePath);
+            controller1.setLabelFive("Image Ready");
+        } else{
+            controller1.setLabelFive("Image not Ready");
         }
         
         Scene scene = new Scene(root);

@@ -31,7 +31,6 @@ public class FXMLOfflineAnalysisHelpController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineInventoryFirstScene.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("../ui/dark-theme.css");
         window.setScene(scene);
         window.show();
     }
@@ -40,5 +39,4 @@ public class FXMLOfflineAnalysisHelpController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
 }

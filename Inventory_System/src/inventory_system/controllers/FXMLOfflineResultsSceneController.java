@@ -112,15 +112,11 @@ public class FXMLOfflineResultsSceneController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineInventory.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/CSS/dark-theme.css");
         window.setScene(scene);
         window.show();
     }
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
-    
 }

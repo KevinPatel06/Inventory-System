@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -43,11 +44,6 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <Text fx:id="ipBox" fill="WHITE" layoutX="260.0" layoutY="74.0" stroke="WHITE" strokeWidth="0.0" text="IP" wrappingWidth="209.8206787109375">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Text>
       <Text fill="WHITE" layoutX="70.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tag 1">
          <font>
             <Font size="23.0" />
@@ -80,5 +76,35 @@
       <TextField fx:id="textFive" layoutX="155.0" layoutY="334.0" promptText="EPC" />
       <Button fx:id="btnHelp" layoutX="457.0" layoutY="48.0" mnemonicParsing="false" onAction="#openHelp" text="How to Use?" />
       <Button fx:id="btnLogo" layoutX="367.0" layoutY="403.0" mnemonicParsing="false" onAction="#logoBrowser" text="Logos" />
+      <Label fx:id="lbOne" layoutX="458.0" layoutY="122.0" text="Image not ready">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTwo" layoutX="456.0" layoutY="176.0" text="Image not ready">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbThree" layoutX="456.0" layoutY="234.0" text="Image not ready">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbFour" layoutX="456.0" layoutY="286.0" text="Image not ready">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbFive" layoutX="456.0" layoutY="339.0" text="Image not ready">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="260.0" layoutY="51.0" prefHeight="26.0" prefWidth="167.0" text="IP Address">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

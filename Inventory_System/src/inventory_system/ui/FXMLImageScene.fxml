@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLImageSceneController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageWindow" fitHeight="163.0" fitWidth="295.0" layoutX="50.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
       <Text fill="WHITE" layoutX="47.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reader IP Address : ">
          <font>
             <Font size="18.0" />

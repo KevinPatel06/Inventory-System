@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -33,6 +34,16 @@ public class FXMLOnlineInventoryController implements Initializable {
     private TextField textFour;
     @FXML
     private TextField textFive;
+    @FXML
+    private Label lbOne;
+    @FXML
+    private Label lbTwo;
+    @FXML
+    private Label lbThree;
+    @FXML
+    private Label lbFour;
+    @FXML
+    private Label lbFive;
     
     public static String EPCcode;
     
@@ -149,6 +160,26 @@ public class FXMLOnlineInventoryController implements Initializable {
     
     public void setImageFive(String imageFive){
         this.fileFive = imageFive;
+    }
+    
+    public void setLabelOne(String text){
+        this.lbOne.setText(text);
+    }
+    
+    public void setLabelTwo(String text){
+        this.lbTwo.setText(text);
+    }
+    
+    public void setLabelThree(String text){
+        this.lbThree.setText(text);
+    }
+    
+    public void setLabelFour(String text){
+        this.lbFour.setText(text);
+    }
+    
+    public void setLabelFive(String text){
+        this.lbFive.setText(text);
     }
     
     @Override

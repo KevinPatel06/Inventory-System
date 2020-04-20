@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package inventory_system.controllers;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -25,14 +20,21 @@ public class FXMLImageSceneController implements Initializable {
     private Label lbAddress;
     @FXML
     private Label ibDate; 
+    @FXML
+    private ImageView imageWindow;
 
     public void setData(String ipAddress, String date){
-        
+        this.ibDate.setText(date);
+        this.lbAddress.setText(ipAddress);
+    }
+    
+    public void setImage(String path){
+        Image image = new Image(path);
+        this.imageWindow.setImage(image);
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }    
-    
+    }     
 }

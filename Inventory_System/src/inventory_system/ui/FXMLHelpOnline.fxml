@@ -7,9 +7,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="400.0" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory_system.controllers.FXMLHelpOnlineController">
    <children>
-      <Text fill="WHITE" layoutX="15.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To use this online inventory manager, you must enter the EPC code into the textbox, then by hitting browse, the EPC reader will then attempt to detect and EPC card matching the EPC code you entered into the textbox. " wrappingWidth="369.3867311477661">
+      <Text fill="WHITE" layoutX="15.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To use the online reader, you must first select an image(a jpg image), using the logo browser button. Once you select an image it will be automatically assigned to the corresponding EPC slot(File 1 = EPC 1). Once both conditions are met, you must press the corresponding browse button and place the EPC code in front of the reader." wrappingWidth="369.3867311477661">
          <font>
-            <Font size="20.0" />
+            <Font size="19.0" />
          </font>
       </Text>
       <Text fill="WHITE" layoutX="35.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Online Guide: " wrappingWidth="206.99774169921875">
@@ -17,6 +17,6 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <Button fx:id="btnBack" layoutX="118.0" layoutY="297.0" mnemonicParsing="false" onAction="#backToScene" text="Back" />
+      <Button fx:id="btnBack" layoutX="174.0" layoutY="293.0" mnemonicParsing="false" onAction="#backToScene" text="Back" />
    </children>
 </AnchorPane>

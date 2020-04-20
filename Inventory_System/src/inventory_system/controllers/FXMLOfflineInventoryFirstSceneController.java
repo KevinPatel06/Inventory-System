@@ -105,7 +105,6 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
             controller.setReader(reader);
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/CSS/OfflineResultsScene.css");
-            scene.getStylesheets().add("/CSS/dark-theme.css");
             window.setScene(scene);
             window.show();
     }
@@ -115,7 +114,6 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineAnalysisHelp.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("../ui/dark-theme.css");
         window.setScene(scene);
         window.show();
     }
@@ -123,6 +121,5 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }     
 }
