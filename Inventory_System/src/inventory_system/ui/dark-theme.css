@@ -91,7 +91,8 @@ and open the template in the editor.
 	-fx-body-color : #2A2E37;
 	-fx-outer-border : #2A2E37;
         -fx-base: rgb(50, 50, 50);
-        -fx-background: rgb(50, 50, 50);
+        -fx-background-image: url("../ui/background.jpg");
+        
         
 
         /* make controls (buttons, thumb, etc.) slightly lighter */

@@ -143,7 +143,7 @@ public class FXMLOfflineInventoryController implements Initializable {
     @FXML
     private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLSelectionPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLWelcomePage.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();
