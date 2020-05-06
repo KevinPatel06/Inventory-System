@@ -29,7 +29,7 @@ public class FXMLOfflineAnalysisHelpController implements Initializable {
     @FXML
     private void backToScene(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineInventoryFirstScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLOfflineInventoryFirstScene.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();

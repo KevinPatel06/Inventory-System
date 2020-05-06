@@ -14,8 +14,9 @@ public class Inventory_System extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ui/FXMLWelcomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("controllers/FXMLWelcomePage.fxml"));
         Scene scene = new Scene(root); 
+        scene.getStylesheets().add("dark-theme.css");
         primaryStage.setScene(scene);
         primaryStage.setTitle("Inventory Manager");
         primaryStage.show();

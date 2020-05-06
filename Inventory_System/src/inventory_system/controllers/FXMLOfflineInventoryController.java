@@ -120,7 +120,7 @@ public class FXMLOfflineInventoryController implements Initializable {
         if(reader.equivalency(reader))
                 System.err.println("The files contain the same EPC Codes.");
         else{
-            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineInventoryFirstScene.fxml"));
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FXMLOfflineInventoryFirstScene.fxml"));
             Parent root = loader1.load();
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             FXMLOfflineInventoryFirstSceneController controller1 = loader1.getController();
@@ -143,7 +143,7 @@ public class FXMLOfflineInventoryController implements Initializable {
     @FXML
     private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLWelcomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLWelcomePage.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();
@@ -152,7 +152,7 @@ public class FXMLOfflineInventoryController implements Initializable {
     @FXML
     private void openHelp(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLHelpOffline.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLHelpOffline.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();

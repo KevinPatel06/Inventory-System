@@ -11,7 +11,7 @@ and open the template in the editor.
 /*change button color*/
 a.button {
     -fx-background-color: #F7F2E7;
-    -fx-text-fill: white;
+    -fx-text-fill: white;   
     
 }
 a.button:hover{

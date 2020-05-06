@@ -87,7 +87,7 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
     @FXML
     private void backToMenu(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineInventory.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLOfflineInventory.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();
@@ -95,7 +95,7 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
     
     @FXML
     private void goToAnalysis(ActionEvent event) throws IOException{
-        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("../ui/FXMLOfflineResultsScene.fxml"));
+        FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FXMLOfflineResultsScene.fxml"));
             Parent root = loader1.load();
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             FXMLOfflineResultsSceneController controller = loader1.getController();
@@ -112,7 +112,7 @@ public class FXMLOfflineInventoryFirstSceneController implements Initializable {
     @FXML
     private void openHelp(ActionEvent event) throws IOException{
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineAnalysisHelp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLOfflineAnalysisHelp.fxml"));
         Scene scene = new Scene(root);
         window.setScene(scene);
         window.show();

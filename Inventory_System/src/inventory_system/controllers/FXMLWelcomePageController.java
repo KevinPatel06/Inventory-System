@@ -11,7 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
+/** 
  * FXML Controller class
  * 
  * @author Gianni Coladonato
@@ -23,8 +23,9 @@ public class FXMLWelcomePageController implements Initializable {
     @FXML
     private void changeScene(ActionEvent event) throws IOException{ 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/FXMLOfflineInventory.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLOfflineInventory.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("dark-theme.css");
         window.setScene(scene);
         window.show();
     }
